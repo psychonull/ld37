@@ -1,4 +1,4 @@
-import Controls from '../controls'
+import Controls from '../prefabs/Controls'
 import * as config from '../config';
 import Room from '../prefabs/Room';
 

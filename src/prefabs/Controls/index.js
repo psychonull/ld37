@@ -1,4 +1,4 @@
-export {default} from './prefab'
+export {default} from './Prefab'
 export {action} from './actions'
 
 import { handleActions } from 'redux-actions';
