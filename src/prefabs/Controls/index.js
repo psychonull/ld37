@@ -1,4 +1,4 @@
-export {default} from './prefab'
+export {default} from './Prefab'
 export {action} from './actions'
 
 import { handleActions } from 'redux-actions';
@@ -10,3 +10,11 @@ export const reducer = handleActions({
   CONTROLS_MOVE: (state, action) => ({...state, dir: action.payload}),
   CONTROLS_RESET: state => ({...state, dir: { x:0, y:0 }})
 }, { enabled: false, dir: { x:0, y:0 } });
+
+/*
+// Selectors
+const getCurrentCounter = state => state.counter
+export const select = {
+  current: createSelector([getCurrentCounter], ({count}) => count)
+};
+*/
