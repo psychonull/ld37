@@ -1,4 +1,6 @@
-import * as counter from '../counter';
+import Controls from '../controls'
+
+// import * as counter from '../counter';
 import * as config from '../config';
 
 import Room from '../prefabs/Room';
@@ -18,18 +20,20 @@ class Game extends Phaser.State {
     });
     text.anchor.set(0.5);
 
-    this.text = this.add.text(50, 50, counter.select.current($$.getState()), {
-      font: '42px Arial', fill: '#ffffff', align: 'center'
-    });
-    this.text.anchor.set(0.5);
+    // this.text = this.add.text(50, 50, counter.select.current($$.getState()), {
+    //   font: '42px Arial', fill: '#ffffff', align: 'center'
+    // });
+    // this.text.anchor.set(0.5);
 
-    this.input.onDown.add(() => $$.dispatch(counter.action.incrementBy(5)))
     this.room = new Room(this.game, undefined, currentLevel);
-    this.game.add.existing(this.room);  
+    this.game.add.existing(this.room);
+
+    this.controls = new Controls(this.game)
+    this.controls.enable()
   }
 
   update() {
-    this.text.text = counter.select.current($$.getState())
+    // this.text.text = counter.select.current($$.getState())
   }
 
   endGame() {

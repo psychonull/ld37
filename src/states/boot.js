@@ -15,7 +15,7 @@ class Boot extends Phaser.State {
   }
 
   preload() {
-    window.$$ = createStore(reducer, initialState);
+    window.$$ = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
     this.load.image('preloader', 'assets/preloader.gif');
   }
 
