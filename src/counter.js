@@ -26,5 +26,5 @@ export const reducer = handleActions({
 const getCurrentCounter = state => state.counter
 
 export const select = {
-  current: () => createSelector([getCurrentCounter], ({count}) => count)($$.getState())
+  current: createSelector([getCurrentCounter], ({count}) => count)
 };
