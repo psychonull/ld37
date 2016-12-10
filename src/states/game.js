@@ -1,4 +1,5 @@
 import * as counter from '../counter'
+import Controls from '../controls'
 
 class Game extends Phaser.State {
 
@@ -17,8 +18,10 @@ class Game extends Phaser.State {
     });
     this.text.anchor.set(0.5);
 
-    this.input.onDown.add(() => $$.dispatch(counter.action.incrementBy(5)))
-    // this.input.onDown.add(this.endGame, this);
+    // this.input.onDown.add(() => $$.dispatch(counter.action.incrementBy(5)))
+
+    this.controls = new Controls(this.game)
+    this.controls.enable()
   }
 
   update() {
