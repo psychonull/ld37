@@ -1,7 +1,5 @@
 import Controls from '../controls'
-
 import * as config from '../config';
-
 import Room from '../prefabs/Room';
 
 class Game extends Phaser.State {
