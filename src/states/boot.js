@@ -1,7 +1,6 @@
 import { createStore } from 'redux'
 import reducer from '../reducers'
 const initialState = {
-  counter: {count: 50},
   config: {
     options: require('../config/options.json'),
     levels: require('../config/levels.json')
