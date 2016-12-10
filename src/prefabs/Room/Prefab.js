@@ -12,7 +12,7 @@ class Room extends Phaser.Group {
       new Alien(game, {
         x: options.tileSize * a.position[0], 
         y: options.tileSize * a.position[1],
-        sprite: a.sprite,
+        character: a.character,
         shape: a.shape
       })
     );

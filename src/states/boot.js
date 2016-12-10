@@ -4,7 +4,8 @@ const initialState = {
   counter: {count: 50},
   config: {
     options: require('../config/options.json'),
-    levels: require('../config/levels.json')
+    levels: require('../config/levels.json'),
+    characters: require('../config/characters.json')
   }
 }; // TODO: Get localstorage and merge with levels
 

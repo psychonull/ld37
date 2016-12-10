@@ -7,7 +7,8 @@ export const action = {};
 export const reducer = handleActions({HACK: state => state}, {
   config: {
     options: require('./options.json'),
-    levels: require('./levels.json')
+    levels: require('./levels.json'),
+    characters: require('./characters.json')
   }
 });
 

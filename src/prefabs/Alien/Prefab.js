@@ -4,8 +4,13 @@ class Alien extends Phaser.Sprite {
 
   //initialization code in the constructor
   constructor(game, options) {
-    super(game, options.x, options.y, options.sprite || 'placeholder', options.frame);
+    let character = $$.getState().config.characters[options.character];
+    if(!character){
+      throw new Error(`cannot find character ${options.character} in characters.json`);
+    }
+    super(game, options.x, options.y, character.sprite || 'placeholder', options.frame);
     this.options = options;
+    this.character = character;
   }
 
   //Code ran on each frame of game
