@@ -1,7 +1,6 @@
 import Controls from '../controls'
 
 import * as config from '../config';
-const options = require('../config/options.json');
 
 import Room from '../prefabs/Room';
 

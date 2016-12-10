@@ -22,3 +22,8 @@
 + Package your game (i.e. minify css, html and js) with:
 
   `npm run build`
+
++ Editor:
+
+  `npm run start:editor`
+  `http://localhost:9977/editor.html`
