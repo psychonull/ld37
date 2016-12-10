@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Level 1",
+        "room": [100, 100],
+        "aliens": [
+            {
+                "sprite": "placeholder1x3",
+                "position": [0, 0],
+                "shape": [
+                    [1],
+                    [1],
+                    [1]
+                ]
+            },
+            {
+                "sprite": "placeholder1x3",
+                "position": [1, 1],
+                "shape": [
+                    [1],
+                    [1],
+                    [1]
+                ]
+            },
+            {
+                "sprite": "placeholder2x2",
+                "position": [3, 0],
+                "shape": [
+                    [1, 1],
+                    [1, 1]
+                ]
+            },
+            {
+                "sprite": "placeholder3x1",
+                "position": [0, 4],
+                "shape": [
+                    [1, 1, 1]
+                ]
+            }
+        ]
+    }
+]
