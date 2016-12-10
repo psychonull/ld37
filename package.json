@@ -6,7 +6,7 @@
     "start": "budo src/main.js:bundle.js --live -- -d -e src/main.js -t [babelify --comments false --presets es2015]",
     "prebuild": "mkdirp build",
     "build": "npm run build:js && npm run build:css && npm run build:html && npm run copy:all",
-    "build:js": "browserify -d -e src/main.js -t [babelify --comments false --presets es2015] | uglifyjs -cm > build/bundle.min.js",
+    "build:js": "browserify -d -e src/index.js -t [babelify --comments false --presets es2015] | uglifyjs -cm > build/bundle.min.js",
     "build:css": "cleancss css/main.css -o build/main.min.css",
     "build:html": "htmlprocessor index.html -o build/index.html",
     "copy:all": "npm run copy:assets && npm run copy:phaser",
@@ -17,7 +17,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "phaser": "^2.6.2"
+    "phaser": "^2.6.2",
+    "redux": "^3.6.0",
+    "redux-actions": "^1.1.0",
+    "reselect": "^2.5.4"
   },
   "devDependencies": {
     "babel": "^6.5.2",

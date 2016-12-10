@@ -1,3 +1,9 @@
+import { createStore } from 'redux'
+import reducer from '../reducers'
+const initialState = {
+  counter: {count: 50}
+}; // TODO: Get localstorage and merge with levels
+
 class Boot extends Phaser.State {
 
   constructor() {
@@ -5,6 +11,7 @@ class Boot extends Phaser.State {
   }
 
   preload() {
+    window.$$ = createStore(reducer, initialState);
     this.load.image('preloader', 'assets/preloader.gif');
   }
 

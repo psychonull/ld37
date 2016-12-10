@@ -4,7 +4,6 @@ import Menu from './states/menu';
 import Preloader from './states/preloader';
 import Gameover from './states/gameover';
 
-
 const game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO, 'ld37-game');
 
 game.state.add('boot', new Boot());
