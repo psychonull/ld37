@@ -14,9 +14,10 @@ export default class Controls {
     return $$.getState().controls
   }
 
-  enable() {
+  enable(reset) {
     this.game.input.onDown.add(this.beginSwipe, this);
     $$.dispatch(action.enable())
+    if (reset) this.reset();
   }
 
   disable() {

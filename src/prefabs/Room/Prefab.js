@@ -1,23 +1,35 @@
-
-const options = require('../../config/options.json'); 
+const options = require('../../config/options.json');
 import Alien from '../Alien';
-//Documentation for Phaser's (2.6.2) group:: phaser.io/docs/2.6.2/Phaser.Group.html
+import {generate as newId} from 'shortid'
+import {action} from './actions'
+
 class Room extends Phaser.Group {
 
-  //initialization code in the constructor
   constructor(game, parent, level) {
     super(game, parent);
+
     this.shape = new Array(level.room[0]).fill(new Array(level.room[1]).fill(1));
-    this.aliens = level.aliens.map( a =>
-      new Alien(game, {
-        x: options.tileSize * a.position[0], 
-        y: options.tileSize * a.position[1],
-        character: a.character,
-        shape: a.shape
-      })
-    );
-    this.aliens.forEach(a => this.add(a));
-    
+    this.createAliens(level)
+  }
+
+  createAliens(level) {
+    const _aliens = []
+
+    this.aliens = level.aliens.map(({position, character, shape}) => {
+      const id = newId();
+      _aliens.push({id, position, character, shape});
+
+      return new Alien(this.game, {
+        id,
+        x: options.tileSize * position[0],
+        y: options.tileSize * position[1],
+        character,
+        shape
+      });
+    });
+
+    $$.dispatch(action.receiveAliens(_aliens));
+    this.aliens.forEach(alien => this.add(alien));
   }
 
 }

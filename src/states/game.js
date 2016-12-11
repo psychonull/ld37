@@ -20,8 +20,8 @@ class Game extends Phaser.State {
     this.room = new Room(this.game, undefined, currentLevel);
     this.game.add.existing(this.room);
 
-    this.controls = new Controls(this.game)
-    this.controls.enable()
+    this.game.controls = new Controls(this.game)
+    this.game.controls.enable()
   }
 
   update() {
