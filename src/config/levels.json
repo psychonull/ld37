@@ -67,7 +67,7 @@
           "position": [3, 2]
         },
         "lights": {
-          "type": "moving"
+          "type": "both"
         },
         "aliens": [
             {
