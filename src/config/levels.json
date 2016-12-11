@@ -30,6 +30,9 @@
           "character": "pork",
           "position": [3, 2]
         },
+        "lights": {
+          "type": "moving"
+        },
         "aliens": [
             {
                 "character": "pork",

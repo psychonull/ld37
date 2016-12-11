@@ -24,8 +24,10 @@ class Game extends Phaser.State {
     this.grid = new Grid(this.game);
     this.game.add.existing(this.grid);
 
-    this.lights = new Lights(this.game, null, {type: 'moving'});
-    this.game.add.existing(this.lights);
+    if(currentLevel.lights){
+      this.lights = new Lights(this.game, null, currentLevel.lights);
+      this.game.add.existing(this.lights);
+    }
 
     this.game.controls = new Controls(this.game)
     this.game.controls.enable()
