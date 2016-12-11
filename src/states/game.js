@@ -18,11 +18,11 @@ class Game extends Phaser.State {
 
     this.game.add.sprite(0, 0, 'bg');
 
-    this.room = new Room(this.game);
-    this.game.add.existing(this.room);
-
     this.grid = new Grid(this.game);
     this.game.add.existing(this.grid);
+
+    this.room = new Room(this.game);
+    this.game.add.existing(this.room);
 
     if(currentLevel.lights){
       this.lights = new Lights(this.game, null, currentLevel.lights);
