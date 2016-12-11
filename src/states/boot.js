@@ -4,6 +4,11 @@ import reducer from '../reducers';
 import resetStore from '../middlewares/resetStore';
 import {getDefaultState} from '../baseState'
 
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import React from 'react';
+import Hud from '../containers/HudContainer.jsx';
+
 class Boot extends Phaser.State {
 
   constructor() {
@@ -20,6 +25,7 @@ class Boot extends Phaser.State {
     window.$$.observer = createStoreObserver(window.$$);
 
     this.load.image('preloader', 'assets/preloader.gif');
+    this.initReactHud();
   }
 
   create() {
@@ -48,6 +54,15 @@ class Boot extends Phaser.State {
     this.game.global = {
 
     };
+  }
+
+  initReactHud(){
+    ReactDOM.render(
+      <Provider store={$$}>
+        <Hud />
+      </Provider>,
+      document.getElementById('hud')
+    );
   }
 
 }

@@ -5,9 +5,6 @@ import Preloader from './states/preloader';
 import Gameover from './states/gameover';
 import Win from './states/win';
 
-import ReactDOM from 'react-dom';
-import React from 'react';
-import Hud from './components/Hud.jsx';
 //HACK: $$ and state is not yet available
 const {gameWidth, gameHeight} = require('./config/options.json');
 const game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'ld37-game');
@@ -20,8 +17,3 @@ game.state.add('gameover', new Gameover());
 game.state.add('win', new Win());
 
 game.state.start('boot');
-
-ReactDOM.render(
-  <Hud name="ld37" />,
-  document.getElementById('hud')
-);
