@@ -14,11 +14,6 @@ class Game extends Phaser.State {
     const state = $$.getState()
     const currentLevel = config.select.level(state, state.room.level);
 
-    var text = this.add.text(this.game.width * 0.5, this.game.height * 0.5, currentLevel.name, {
-      font: '42px Arial', fill: '#ffffff', align: 'center'
-    });
-    text.anchor.set(0.5);
-
     this.room = new Room(this.game);
     this.game.add.existing(this.room);
 
