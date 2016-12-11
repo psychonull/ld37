@@ -1,6 +1,7 @@
 import {action as roomActions} from '../Room/actions'
 import {getAlien} from '../Room/selector'
-const {tileSize, gameWidth, gameHeight} = require('../../config/options.json');
+const {tileSize} = require('../../config/options.json');
+import {getGrid} from '../../config'
 
 class Alien extends Phaser.Sprite {
 
@@ -71,9 +72,7 @@ class Alien extends Phaser.Sprite {
   // x === -1 is Left
   // y === -1 is Up
   canMove(alienId, {x, y}, aliens) {
-    const rows = Math.floor(gameHeight/tileSize);
-    const cols = Math.floor(gameWidth/tileSize);
-    const map = new Array(cols).fill(1).map(() => new Array(rows).fill(0));
+    const map = getGrid($$.getState())
 
     const aliensAfterMove = this._getAliensMoved(aliens, alienId, [x, y]);
     for(let i = 0; i < aliensAfterMove.length; i++){

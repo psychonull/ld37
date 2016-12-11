@@ -1,4 +1,4 @@
-const {tileSize, gameWidth, gameHeight} = require('../../config/options.json');
+import {getGrid} from '../../config'
 
 class Cell extends Phaser.Sprite {
   constructor(game, options) {
@@ -10,9 +10,7 @@ class Grid extends Phaser.Group {
   constructor(game, parent) {
     super(game, parent);
 
-    const rows = Math.floor(gameHeight/tileSize);
-    const cols = Math.floor(gameWidth/tileSize);
-    this._grid = new Array(cols).fill(1).map(() => new Array(rows).fill(0));
+    this._grid = getGrid($$.getState())
 
     this._grid.forEach((row, i) => {
       row.forEach((cell, j) => {
