@@ -10,8 +10,10 @@ class Grid extends Phaser.Group {
   constructor(game, parent) {
     super(game, parent);
 
-    this._grid = getGrid($$.getState())
+    const state = $$.getState()
+    this._grid = getGrid(state)
 
+    const tileSize = state.config.options.tileSize
     this._grid.forEach((row, i) => {
       row.forEach((cell, j) => {
         const c = new Cell(game, {
