@@ -2,24 +2,24 @@
     {
         "name": "Level 1",
         "target": {
-          "character": "placeholder1x1",
+          "character": "pajaro",
           "position": [5, 5]
         },
         "aliens": [
             {
-                "character": "placeholder1x2",
+                "character": "wheeler",
                 "position": [0, 0]
             },
             {
-                "character": "placeholder1x1",
+                "character": "arrugado",
                 "position": [1, 1]
             },
             {
-                "character": "placeholder2x2",
+                "character": "pajaro",
                 "position": [3, 0]
             },
             {
-                "character": "placeholder2x1",
+                "character": "huesos",
                 "position": [0, 4]
             }
         ]
@@ -27,16 +27,16 @@
     {
         "name": "Level 2",
         "target": {
-          "character": "placeholder1x1",
+          "character": "pork",
           "position": [3, 2]
         },
         "aliens": [
             {
-                "character": "placeholder1x1",
+                "character": "pork",
                 "position": [0, 0]
             },
             {
-                "character": "placeholder2x2",
+                "character": "huesos",
                 "position": [1, 1]
             }
         ]

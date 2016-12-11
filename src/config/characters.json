@@ -1,34 +1,91 @@
 {
-  "placeholder1x2_orig": {
-      "sprite": "placeholder1x2",
-      "shape": [
-          [1]
-      ]
+  "pork": {
+    "sprite": "1_1x1",
+    "shape": [
+      [1]
+    ]
   },
-  "placeholder1x1": {
-      "sprite": "1_1x1",
-      "shape": [
-          [1]
-      ]
+  "pulpo": {
+    "sprite": "2_1x1",
+    "shape": [
+      [1]
+    ]
   },
-  "placeholder1x2": {
-      "sprite": "11_1x2",
-      "shape": [
-          [1],
-          [1]
-      ]
+  "tentacle": {
+    "sprite": "3_1x1",
+    "shape": [
+      [1]
+    ]
   },
-  "placeholder2x2": {
+  "cockie": {
+    "sprite": "4_1x1",
+    "shape": [
+      [1]
+    ]
+  },
+
+  "jasam": {
       "sprite": "5_2x2",
       "shape": [
           [1, 1],
           [1, 1]
       ]
   },
-  "placeholder2x1": {
-      "sprite": "9_2x1",
+  "tresojos": {
+      "sprite": "6_2x2",
       "shape": [
+          [1, 1],
           [1, 1]
+      ]
+  },
+  "ciclope": {
+      "sprite": "7_2x2",
+      "shape": [
+          [1, 1],
+          [1, 1]
+      ]
+  },
+  "arrugado": {
+      "sprite": "8_2x2",
+      "shape": [
+          [1, 1],
+          [1, 1]
+      ]
+  },
+
+
+  "tiritas": {
+    "sprite": "9_2x1",
+    "shape": [
+      [1, 1]
+    ]
+  },
+  "pajaro": {
+    "sprite": "10_2x1",
+    "shape": [
+      [1, 1]
+    ]
+  },
+
+  "wheeler": {
+      "sprite": "11_1x2",
+      "shape": [
+          [1],
+          [1]
+      ]
+  },
+  "tiocosas": {
+      "sprite": "12_1x2",
+      "shape": [
+          [1],
+          [1]
+      ]
+  },
+  "huesos": {
+      "sprite": "13_1x2",
+      "shape": [
+          [1],
+          [1]
       ]
   }
 }

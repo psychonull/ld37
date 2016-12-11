@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "budo src/main.js:bundle.js --live -- -d -e src/main.js",
+    "start": "budo src/main.js:bundle.js --live --port 9966 -- -d -e src/main.js",
     "start:editor": "budo src/editor.js:editor.bundle.js --live --port 9977 -- -d -e src/editor.js",
     "prebuild": "mkdirp build",
     "build": "npm run build:js && npm run build:css && npm run build:html && npm run copy:all",

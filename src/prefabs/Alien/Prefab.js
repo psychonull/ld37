@@ -17,6 +17,7 @@ class Alien extends Phaser.Sprite {
 
     this.options = options;
     this.character = character;
+    this.scale.setTo(0.5, 0.5);
 
     this.inputEnabled = true;
     this.events.onInputDown.add(this.onInputDown, this);
