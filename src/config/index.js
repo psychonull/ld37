@@ -1,16 +1,10 @@
-import { handleActions } from 'redux-actions';
+import {getDefaultState} from '../baseState'
 import { createSelector } from 'reselect';
 
 export const action = {};
 
 // Reducer
-export const reducer = handleActions({HACK: state => state}, {
-  config: {
-    options: require('./options.json'),
-    levels: require('./levels.json'),
-    characters: require('./characters.json')
-  }
-});
+export const reducer = (state = getDefaultState(true)) => state
 
 // Selectors
 const getLevel = (state, i) => {
@@ -18,7 +12,7 @@ const getLevel = (state, i) => {
 }
 
 export const getGrid = state => {
-  const {tileSize, gameWidth, gameHeight} = state.options
+  const {tileSize, gameWidth, gameHeight} = state.config.options
   const rows = Math.floor(gameHeight/tileSize);
   const cols = Math.floor(gameWidth/tileSize);
 
