@@ -28,7 +28,9 @@ class Preloader extends Phaser.State {
 
   loadResources() {
       // load your resources here
+      this.game.load.image('bg','assets/sprites/bg.png');
       this.game.load.image('light','assets/sprites/light.png');
+
 
       this.game.load.image('target1x1','assets/sprites/target1x1.png');
       this.game.load.image('target1x2','assets/sprites/target1x2.png');

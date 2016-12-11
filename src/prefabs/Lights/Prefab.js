@@ -107,7 +107,7 @@ class Lights extends Phaser.Group {
     super(game, parent);
     this.options = Object.assign({}, this.defaultOptions, options);
 
-    if(this.options.type === 'flash'){
+    if(this.options.type === 'flashing'){
       this.add(new FlashingLight(this.game, this.options));
     }
     else if(this.options.type === 'moving'){
