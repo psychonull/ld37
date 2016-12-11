@@ -5,6 +5,29 @@ import {generate as newId} from 'shortid'
 import {action} from './actions'
 import {getCurrentLevel} from './selector'
 
+class Cell extends Phaser.Sprite {
+  constructor(game, options) {
+    super(game, options.x, options.y, 'cell_gray', options.frame);
+  }
+}
+
+class Cells extends Phaser.Group {
+  constructor(game, parent, {shape}) {
+    super(game, parent, {shape});
+    
+    shape.forEach((row, i) => {
+      row.forEach((cell, j) => {
+        const c = new Cell(game, {
+          x: options.tileSize * i,
+          y: options.tileSize * j
+        })
+
+        this.add(c)
+      })
+    })
+  }
+}
+
 class Room extends Phaser.Group {
 
   constructor(game, parent) {
@@ -15,6 +38,7 @@ class Room extends Phaser.Group {
     this.target = new Target(this.game)
     this.add(this.target)
 
+    this.cells = new Cells(game, undefined, {shape: this.shape})
     this.createAliens(level)
   }
 
