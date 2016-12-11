@@ -1,6 +1,7 @@
 import Controls from '../prefabs/Controls'
 import * as config from '../config';
 import Room from '../prefabs/Room';
+import {restart, changeLevel} from '../gameActions'
 
 class Game extends Phaser.State {
 
@@ -25,8 +26,12 @@ class Game extends Phaser.State {
 
     $$.observer.once(getState => getState().target.win, () => {
       console.log('WIN!');
-      this.endGame();
-      // this.game.controls.disable();
+
+      // TODO: on loose > fire below action
+      // $$.dispatch(restart());
+
+      $$.dispatch(changeLevel($$.getState().room.level + 1))
+      this.game.state.start('game');
     });
   }
 

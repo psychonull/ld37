@@ -1,14 +1,8 @@
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import createStoreObserver from 'redux-store-observer';
-import reducer from '../reducers'
-
-const initialState = {
-  config: {
-    options: require('../config/options.json'),
-    levels: require('../config/levels.json'),
-    characters: require('../config/characters.json')
-  }
-}; // TODO: Get localstorage and merge with levels
+import reducer from '../reducers';
+import resetStore from '../middlewares/resetStore';
+import {getDefaultState} from '../baseState'
 
 class Boot extends Phaser.State {
 
@@ -17,7 +11,12 @@ class Boot extends Phaser.State {
   }
 
   preload() {
-    window.$$ = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+    const enhancedStore = compose(
+      resetStore,
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )(createStore)
+
+    window.$$ = enhancedStore(reducer, getDefaultState(true))
     window.$$.observer = createStoreObserver(window.$$);
 
     this.load.image('preloader', 'assets/preloader.gif');

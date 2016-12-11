@@ -24,5 +24,23 @@
                 "position": [0, 4]
             }
         ]
+    },
+    {
+        "name": "Level 2",
+        "room": [100, 100],
+        "target": {
+          "character": "placeholder1x1",
+          "position": [3, 2]
+        },
+        "aliens": [
+            {
+                "character": "placeholder1x1",
+                "position": [0, 0]
+            },
+            {
+                "character": "placeholder2x2",
+                "position": [1, 1]
+            }
+        ]
     }
 ]
