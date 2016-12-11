@@ -8,7 +8,9 @@ export const reducer = handleActions({
   ROOM_LEVEL_SET: (state, action) => ({...state,
     level: action.payload
   }),
-
+  ROOM_LEVEL_RESTART: state => ({...state,
+    restart: true
+  }),
   ROOM_ALIENS_RECEIVE: (state, action) => ({...state,
     aliens: action.payload
   }),
@@ -18,11 +20,13 @@ export const reducer = handleActions({
       const {id, position} = action.payload
       if (alien.id === id) return {...alien, position}
       return alien
-    })
+    }),
+    moves: state.moves + 1
   }),
   ROOM_ALIEN_RELEASED: state => ({...state, alienSelected: null})
 }, {
   level: 0,
+  moves: 0,
   alienSelected: null,
   aliens: []
 });

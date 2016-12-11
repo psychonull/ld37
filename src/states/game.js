@@ -1,7 +1,8 @@
 import Controls from '../prefabs/Controls'
 import * as config from '../config';
 import Room from '../prefabs/Room';
-import {restart, changeLevel} from '../gameActions'
+import {action as roomActions} from '../prefabs/Room/actions';
+import {restart, changeLevel} from '../gameActions';
 
 class Game extends Phaser.State {
 
@@ -33,6 +34,17 @@ class Game extends Phaser.State {
       $$.dispatch(changeLevel($$.getState().room.level + 1))
       this.game.state.start('game');
     });
+
+    $$.observer.once(getState => getState().room.restart, () => {
+      console.log('RESTART LEVEL ___---__');
+
+      $$.dispatch(changeLevel($$.getState().room.level))
+      this.game.state.start('game');
+    });
+
+    this.restartKey = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
+    this.restartKey.onDown.add(() => $$.dispatch(roomActions.restartLevel()));
+
   }
 
   update() {

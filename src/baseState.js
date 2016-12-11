@@ -14,7 +14,8 @@ export const getDefaultState = useStorage => ({ // TODO: use localstorage
 
 export const getLevelState = level => ({
   room: {
-    level
+    level,
+    moves: 0
   },
   config
 })
