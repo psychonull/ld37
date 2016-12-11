@@ -42,6 +42,23 @@ class Preloader extends Phaser.State {
       this.game.load.image('target2x2','assets/sprites/target2x2.png');
       this.game.load.image('target3x1','assets/sprites/target3x1.png');
 
+      this.game.load.atlas('1_1x1', 'assets/spritesheets/1_1x1.png', 'assets/spritesheets/1_1x1.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      this.game.load.atlas('2_1x1', 'assets/spritesheets/2_1x1.png', 'assets/spritesheets/2_1x1.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      this.game.load.atlas('3_1x1', 'assets/spritesheets/3_1x1.png', 'assets/spritesheets/3_1x1.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      this.game.load.atlas('4_1x1', 'assets/spritesheets/4_1x1.png', 'assets/spritesheets/4_1x1.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+
+      this.game.load.atlas('5_2x2', 'assets/spritesheets/5_2x2.png', 'assets/spritesheets/5_2x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      this.game.load.atlas('6_2x2', 'assets/spritesheets/6_2x2.png', 'assets/spritesheets/6_2x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      this.game.load.atlas('7_2x2', 'assets/spritesheets/7_2x2.png', 'assets/spritesheets/7_2x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      this.game.load.atlas('8_2x2', 'assets/spritesheets/8_2x2.png', 'assets/spritesheets/8_2x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+
+      this.game.load.atlas('9_2x1', 'assets/spritesheets/9_2x1.png', 'assets/spritesheets/9_2x1.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      this.game.load.atlas('10_2x1', 'assets/spritesheets/10_2x1.png', 'assets/spritesheets/10_2x1.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      
+      this.game.load.atlas('11_1x2', 'assets/spritesheets/11_1x2.png', 'assets/spritesheets/11_1x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      this.game.load.atlas('12_1x2', 'assets/spritesheets/12_1x2.png', 'assets/spritesheets/12_1x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+      this.game.load.atlas('13_1x2', 'assets/spritesheets/13_1x2.png', 'assets/spritesheets/13_1x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+
       this.game.load.image('cell_gray','assets/sprites/cell_gray.png');
   }
 

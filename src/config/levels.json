@@ -2,12 +2,12 @@
     {
         "name": "Level 1",
         "target": {
-          "character": "placeholder1x3",
+          "character": "placeholder1x1",
           "position": [5, 5]
         },
         "aliens": [
             {
-                "character": "placeholder1x3",
+                "character": "placeholder1x2",
                 "position": [0, 0]
             },
             {
@@ -19,7 +19,7 @@
                 "position": [3, 0]
             },
             {
-                "character": "placeholder3x1",
+                "character": "placeholder2x1",
                 "position": [0, 4]
             }
         ]

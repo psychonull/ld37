@@ -20,6 +20,32 @@ class Alien extends Phaser.Sprite {
 
     this.inputEnabled = true;
     this.events.onInputDown.add(this.onInputDown, this);
+
+
+    this.scale.setTo(0.5, 0.5);
+    
+    this.animationSpeed = 10;
+    this._setupAnimations();
+    this.animations.play('idle', this.animationSpeed, true);
+  }
+
+  _setupAnimations(){
+    let [spriteIndex, spriteDimensions] = this.character.sprite.split('_');
+    this.animations.add('idle', [
+      `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
+      `${spriteIndex}_iddle_2_${spriteDimensions}_sprite`,
+      `${spriteIndex}_iddle_3_${spriteDimensions}_sprite`
+    ]);
+    this.animations.add('leftright', [
+      `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
+      `${spriteIndex}_leftright_2_${spriteDimensions}_sprite`,
+      `${spriteIndex}_leftright_3_${spriteDimensions}_sprite`
+    ]);
+    this.animations.add('updown', [
+      `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
+      `${spriteIndex}_updown_2_${spriteDimensions}_sprite`,
+      `${spriteIndex}_updown_3_${spriteDimensions}_sprite`
+    ]);
   }
 
   onInputDown() {
@@ -38,10 +64,10 @@ class Alien extends Phaser.Sprite {
   animateMove(toPos, done) {
     const tween = this.game.add.tween(this);
     tween.onComplete.add(done);
-    tween.to(toPos, 500, Phaser.Easing.Bounce.Out, true);
+    //tween.to(toPos, 500, Phaser.Easing.Bounce.Out, true);
 
     // TODO: Use the following when sprites are done
-    // tween.to(toPos, 500, Phaser.Linear, true);
+    tween.to(toPos, 500, Phaser.Linear, true);
   }
 
   _sumPosition(a, b){
@@ -59,13 +85,30 @@ class Alien extends Phaser.Sprite {
       const x = tileSize * position[0];
       const y = tileSize * position[1];
 
+      this.playMovingAnimation(controls.move);
       this.animateMove({x, y}, () => {
         $$.dispatch(roomActions.alienMoveTo({id: this.id, position}));
+        this.animations.play('idle', this.animationSpeed, true);
       })
     }
 
     $$.dispatch(roomActions.alienReleased(this.id));
     this.game.controls.enable(true);
+  }
+
+  playMovingAnimation(move){
+    if(move.x === 1){
+      this.animations.play('leftright', this.animationSpeed, true);
+    }
+    else if(move.x === -1){
+      this.animations.play('leftright', this.animationSpeed, true);
+    }
+    else if(move.y === 1){
+      this.animations.play('updown', this.animationSpeed, true);
+    }
+    else if(move.y === -1){
+      this.animations.play('updown', this.animationSpeed, true);
+    }
   }
 
   // x and y posible values = 1, 0 or -1
