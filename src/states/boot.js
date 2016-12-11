@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import React from 'react';
 import Hud from '../containers/HudContainer.jsx';
+import Overlay from '../containers/OverlayContainer.jsx';
 
 class Boot extends Phaser.State {
 
@@ -25,7 +26,7 @@ class Boot extends Phaser.State {
     window.$$.observer = createStoreObserver(window.$$);
 
     this.load.image('preloader', 'assets/preloader.gif');
-    this.initReactHud();
+    this.initReact();
   }
 
   create() {
@@ -56,12 +57,18 @@ class Boot extends Phaser.State {
     };
   }
 
-  initReactHud(){
+  initReact(){
     ReactDOM.render(
       <Provider store={$$}>
         <Hud />
       </Provider>,
       document.getElementById('hud')
+    );
+    ReactDOM.render(
+      <Provider store={$$}>
+        <Overlay />
+      </Provider>,
+      document.getElementById('overlay')
     );
   }
 

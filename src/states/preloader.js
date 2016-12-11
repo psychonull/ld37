@@ -18,6 +18,10 @@ class Preloader extends Phaser.State {
 
   update() {
       if (this.ready) {
+        $$.dispatch({
+          type: 'GAME_STATE_CHANGE',
+          payload: 'menu'
+        });
         this.game.state.start('menu');
       }
   }
