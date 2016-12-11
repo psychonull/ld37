@@ -1,30 +1,230 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>ld37 - EDITOR</title>
 
-  <!-- build:css main.min.css -->
-  <link rel="stylesheet" href="css/main.css">
-  <!-- /build -->
-</head>
+  <head>
+    <title>Editor</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<body>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
 
-  <div id="ld37-game" class="game"></div>
+      body {
+        background-color: black !important;
+      }
 
-  <!-- build:remove -->
-  <script src="http://localhost:35729/livereload.js"></script>
-  <!-- /build -->
+      .alert {
+        margin: 10px;
+        padding: 3px 10px;
+      }
 
-  <!-- build:js custom/phaser-arcade-physics.min.js -->
-  <script src="node_modules/phaser/build/custom/phaser-arcade-physics.min.js"></script>
-  <!-- /build -->
+      .panel {
+        background-color: transparent;
+        color: #fff;
+        margin-bottom: 6px;
+      }
 
-  <!-- build:js editor.bundle.min.js -->
-  <script src="editor.bundle.js"></script>
-  <!-- /build -->
+      .form-group {
+        margin-right: 20px;
+      }
 
-</body>
+      .form-control {
+        background-color: black;
+        color: #fff;
+      }
+
+      input[type=number] {
+        max-width: 100px;
+      }
+
+      #grid-container {
+        margin: auto;
+        margin-top: 0;
+      }
+
+      #grid-container table{
+        margin: auto;
+        border-spacing: 3px;
+      }
+
+      #grid-container td {
+        width: 64px;
+        height: 64px;
+        border: 1px solid #4B4B4B;
+        position: relative;
+      }
+
+      .tool {
+        color: white;
+        font-weight: bold;
+      }
+
+      .tool:hover {
+        color: white;
+        text-decoration: underline;
+      }
+
+      .tool.start {
+        margin-left: 50px;
+      }
+
+      .tool.start, .tool.finish {
+        border-color: #fff;
+        background: #000;
+      }
+
+      .tool.selected {
+        color: #fff!important;
+      }
+
+      .tool.start.selected, .tool.finish.selected {
+        background-color: #fff;
+        color: #000!important;
+      }
+
+      .opt0 {
+        border: 2px solid #4B4B4B;
+        background-color: #000;
+      }
+      .opt0.selected {
+        background-color: #4B4B4B;
+      }
+
+      .opt1 {
+        border: 2px solid #316EA1!important;
+        background-color: #000;
+      }
+      .opt1.selected {
+        background-color: #316EA1;
+      }
+
+      .opt2 {
+        border: 2px solid #A13146!important;
+        background-color: #000;
+      }
+      .opt2.selected {
+        background-color: #A13146;
+      }
+
+      .opt3 {
+        border: 2px solid #6BA348!important;
+        background-color: #000;
+      }
+      .opt3.selected {
+        background-color: #6BA348;
+      }
+
+      .opt4 {
+        border: 2px solid #A248A3!important;
+        background-color: #000;
+      }
+      .opt4.selected {
+        background-color: #A248A3;
+      }
+
+      .opt5 {
+        border: 2px solid #F88C00!important;
+        background-color: #000;
+      }
+      .opt5.selected {
+        background-color: #F88C00;
+      }
+
+      .opt100, .opt900 {
+        text-align: center;
+      }
+      .opt100::after {
+        content: 'S';
+        color: white;
+        font-weight: bold;
+      }
+      .opt900::after {
+        content: 'F';
+        color: white;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="editor" class="container">
+      <div class="row panel">
+        <div class="col-xs-9" id="cell-types">
+          Aliens:
+          <button data-tileType="0" class="btn tool opt0">0</button>
+          <button data-tileType="1" class="btn tool opt1">1</button>
+          <button data-tileType="2" class="btn tool opt2">2</button>
+          <button data-tileType="3" class="btn tool opt3">3</button>
+          <button data-tileType="4" class="btn tool opt4">4</button>
+          <button data-tileType="5" class="btn tool opt5">5</button>
+          <button data-tileType="6" class="btn tool opt6">6</button>
+          <button data-tileType="7" class="btn tool opt7">7</button>
+          <button data-tileType="8" class="btn tool opt8">8</button>
+          <button data-tileType="9" class="btn tool opt9">9</button>
+          <button data-tileType="10" class="btn tool opt10">10</button>
+          <button data-tileType="11" class="btn tool opt11">11</button>
+          <button data-tileType="12" class="btn tool opt12">12</button>
+          <button data-tileType="13" class="btn tool opt13">13</button>
+          <button data-tileType="100" class="btn tool start">X</button>
+          <button data-tileType="900" class="btn tool finish">O</button>
+        </div>
+        <div class="col-xs-3">
+          <button type="submit" class="btn btn-default" id="import">Import</button>
+          <button type="submit" class="btn btn-default" id="export">Export</button>
+          <a type="submit" href="#" target="_blank" class="btn btn-default" id="test-link">Test Level</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" id="grid-container">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="export-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <textarea id="export-text" rows="20" style="width: 100%;"></textarea>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="import-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <textarea id="import-text" rows="20" style="width: 100%;"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="process-import">Import</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- build:remove -->
+    <script src="http://localhost:35729/livereload.js"></script>
+    <!-- /build -->
+
+    <!-- build:js custom/phaser-arcade-physics.min.js -->
+    <script src="node_modules/phaser/build/custom/phaser-arcade-physics.min.js"></script>
+    <!-- /build -->
+
+    <!-- build:js editor.bundle.min.js -->
+    <script src="editor.bundle.js"></script>
+    <!-- /build -->
+
+  </body>
+
 </html>
-
