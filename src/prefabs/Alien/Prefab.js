@@ -33,22 +33,32 @@ class Alien extends Phaser.Sprite {
     }
   }
 
+  animateMove(toPos, done) {
+    const tween = this.game.add.tween(this);
+    tween.onComplete.add(done);
+    tween.to(toPos, 500, Phaser.Easing.Bounce.Out, true);
+
+    // TODO: Use the following when sprites are done
+    // tween.to(toPos, 500, Phaser.Linear, true);
+  }
+
   move(room, controls) {
     this.game.controls.disable();
 
     if (this.canMove(this.id, controls.move, room.aliens)) {
       const alien = getAlien($$.getState(), this.id)
 
-      const x = alien.position[0] + controls.move.x;
-      const y = alien.position[1] + controls.move.y;
+      const position = [
+        alien.position[0] + controls.move.x,
+        alien.position[1] + controls.move.y
+      ];
 
-      $$.dispatch(roomActions.alienMoveTo({
-        id: this.id,
-        position: [x, y]
-      }));
+      const x = options.tileSize * position[0];
+      const y = options.tileSize * position[1];
 
-      this.position.x = options.tileSize * x;
-      this.position.y = options.tileSize * y;
+      this.animateMove({x, y}, () => {
+        $$.dispatch(roomActions.alienMoveTo({id: this.id, position}));
+      })
     }
 
     $$.dispatch(roomActions.alienReleased(this.id));
