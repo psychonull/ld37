@@ -23,17 +23,21 @@ class Alien extends Phaser.Sprite {
     this.events.onInputDown.add(this.onInputDown, this);
 
 
-    this.animationSpeed = 10;
+    this.animationSpeed = 8;
     this._setupAnimations();
-    this.animations.play('idle', this.animationSpeed, true);
+    this.moving = false;
+    this.animations.play('none', 1, true);
+    this.playIdleAtRandom();
   }
 
   _setupAnimations(){
     let [spriteIndex, spriteDimensions] = this.character.sprite.split('_');
+    this.animations.add('none', [`${spriteIndex}_iddle_1_${spriteDimensions}_sprite`]);
     this.animations.add('idle', [
       `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
       `${spriteIndex}_iddle_2_${spriteDimensions}_sprite`,
-      `${spriteIndex}_iddle_3_${spriteDimensions}_sprite`
+      `${spriteIndex}_iddle_3_${spriteDimensions}_sprite`,
+      `${spriteIndex}_iddle_2_${spriteDimensions}_sprite`
     ]);
     this.animations.add('leftright', [
       `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
@@ -45,6 +49,15 @@ class Alien extends Phaser.Sprite {
       `${spriteIndex}_updown_2_${spriteDimensions}_sprite`,
       `${spriteIndex}_updown_3_${spriteDimensions}_sprite`
     ]);
+  }
+
+  playIdleAtRandom(){
+    if(!this.moving){
+      this.animations.play('idle', this.animationSpeed);
+    }
+    this.game.time.events.add(this.game.rnd.integerInRange(1000, 2000), () => {
+      this.playIdleAtRandom();
+    });
   }
 
   onInputDown() {
@@ -88,7 +101,8 @@ class Alien extends Phaser.Sprite {
       this.playMovingAnimation(controls.move);
       this.animateMove({x, y}, () => {
         $$.dispatch(roomActions.alienMoveTo({id: this.id, position}));
-        this.animations.play('idle', this.animationSpeed, true);
+        this.animations.play('none', 1, true);
+        this.moving = false;
       })
     }
 
@@ -97,6 +111,7 @@ class Alien extends Phaser.Sprite {
   }
 
   playMovingAnimation(move){
+    this.moving = true;
     if(move.x === 1){
       this.animations.play('leftright', this.animationSpeed, true);
       this.scale.x = Math.abs(this.scale.x);
