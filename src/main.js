@@ -3,6 +3,7 @@ import Game from './states/game';
 import Menu from './states/menu';
 import Preloader from './states/preloader';
 import Gameover from './states/gameover';
+import Win from './states/win';
 
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -16,6 +17,7 @@ game.state.add('game', new Game());
 game.state.add('menu', new Menu());
 game.state.add('preloader', new Preloader());
 game.state.add('gameover', new Gameover());
+game.state.add('win', new Win());
 
 game.state.start('boot');
 

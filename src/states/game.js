@@ -2,7 +2,7 @@ import Controls from '../prefabs/Controls'
 import * as config from '../config';
 import Room from '../prefabs/Room';
 import {action as roomActions} from '../prefabs/Room/actions';
-import {restart, changeLevel} from '../gameActions';
+import {restart, changeLevel, win} from '../gameActions';
 
 class Game extends Phaser.State {
 
@@ -30,8 +30,13 @@ class Game extends Phaser.State {
 
       // TODO: on loose > fire below action
       // $$.dispatch(restart());
-
-      $$.dispatch(changeLevel($$.getState().room.level + 1))
+      let state = $$.getState();
+      if (!config.select.level(state, state.room.level + 1)){
+        $$.dispatch(win());
+      }
+      else {
+        $$.dispatch(changeLevel(state.room.level + 1))
+      }
       this.game.state.start('game');
     });
 
@@ -40,6 +45,12 @@ class Game extends Phaser.State {
 
       $$.dispatch(changeLevel($$.getState().room.level))
       this.game.state.start('game');
+    });
+
+    $$.observer.once(getState => getState().gameStats.win, () => {
+      console.log('WIN GAME ! ! ! :D');
+
+      this.game.state.start('win');
     });
 
     this.restartKey = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
