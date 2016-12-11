@@ -13,7 +13,7 @@ let $ = window.$;
 let state = {
   x,
   y,
-  start: null,
+  //start: null,
   end: null,
   map: null,
   author: null
@@ -91,6 +91,7 @@ $(document).on('ready', () => {
 });
 
 const charsByName = [
+  '',
   'pork',
   'pulpo',
   'tentacle',
@@ -107,80 +108,55 @@ const charsByName = [
 ]
 
 function refreshState(level){
-  // state.x = level.gridSize[0];
-  // state.y = level.gridSize[1];
-  // state.maxMoves = level.maxMoves;
-  // state.author = level.author;
-
   state.map = getBaseGrid();
-  /*
-  state.map = getBaseGrid().forEach((row, i) => {
-    row.forEach((cell, j) => {
-      const c = new Cell(game, {
-        x: tileSize * i,
-        y: tileSize * j
-      })
-
-      this.add(c)
-    })
-  })
-  */
 
   level.aliens.forEach(alien => {
     const shape = __characters[alien.character].shape
     const pos = alien.position
 
     const value = charsByName.indexOf(alien.character);
-    state.map[pos[0]][pos[1]] = value
 
+    // Complete the shape for reference
+    shape.forEach((row, i) => {
+      row.forEach((cell, j) => {
+        state.map[i + pos[1]][j + pos[0]] = value
+      })
+    })
+
+    state.map[pos[1]][pos[0]] = {
+      value,
+      character: alien.character
+    }
   })
 
-  state.start = []
-  state.end = level.target.position
+  state.end = level.target
+  const shape = __characters[level.target.character].shape
+  const pos = level.target.position
 
-  /*
-  level.cells.forEach((row, j) => {
-    row.forEach((cell, i) => {
-      if(cell - 100 >= 0 && cell - 100 < 100){
-        state.start = [i, j];
-      }
-      if(cell - 900 >= 0 && cell - 900 < 100){
-        state.end = [i, j];
-      }
-    });
-  });
-
-  state.map = level.cells.map((row) => {
-    return row.map((cell) => {
-      if(cell - 100 >= 0 && cell - 100 < 100){
-        return cell - 100;
-      }
-      if(cell - 900 >= 0 && cell - 900 < 100){
-        return cell - 900;
-      }
-      return cell;
-    });
-  });
-  */
+  shape.forEach((row, i) => {
+    row.forEach((cell, j) => {
+      state.map[i + pos[1]][j + pos[0]] = 900
+    })
+  })
 }
 
 function refreshControlsFromState(){
-  // $('#x').val(state.x);
-  // $('#y').val(state.y);
-  // $('#maxMoves').val(state.maxMoves);
-  // $('#author').val(state.author);
   let $grid = $('<table>');
   for(let i = 0; i < state.y; i++){
     let $row = $('<tr>');
 
     for(let j = 0; j < state.x; j++){
-      let $td = $(`<td data-location="${j}-${i}" class="${'opt' + state.map[i][j]}" >`);
-      if(state.start[0] === j && state.start[1] === i){
-        $td.addClass('opt100');
+      let value = state.map[i][j];
+      let character;
+      if (isNaN(value)) {
+        character = value.character;
+        value = value.value;
       }
-      if(state.end[0] === j && state.end[1] === i){
-        $td.addClass('opt900');
-      }
+
+      const charCSS = character ? 'char-' + character : '';
+      const css = `${'opt' + value} ${charCSS}`;
+      let $td = $(`<td data-location="${j}-${i}" class="${css}" >`);
+
       $row.append($td);
     }
     $grid.append($row);
@@ -189,25 +165,22 @@ function refreshControlsFromState(){
 }
 
 function getLevelFromState(state){
-  let cells = state.map.map((row, j) => {
-    return row.map((cell, i) => {
-      if(!cell){
-        return 0;
+
+  const aliens = []
+  state.map.forEach((row, j) => {
+    row.forEach((cell, i) => {
+      if (cell && isNaN(cell) && cell.character) {
+        aliens.push({
+          character: cell.character,
+          position: [i, j]
+        })
       }
-      if(i === state.start[0] && j === state.start[1]){
-        return cell + 100;
-      }
-      if(i === state.end[0] && j === state.end[1]){
-        return cell + 900;
-      }
-      return cell;
     });
   });
+
   let data = {
-    gridSize: [state.x, state.y],
-    cells,
-    maxMoves: parseInt($('#maxMoves').val()) || false,
-    author: state.author
+    target: state.end,
+    aliens
   };
   return JSON.stringify(data);
 }
@@ -225,7 +198,7 @@ function refreshExportButton(){
 }
 
 function validate(){
-  return state.start && state.end;
+  return /*state.start &&*/ state.end;
 }
 
 function onHoverGridCellIn(e){
@@ -253,10 +226,10 @@ function onClickGridCell(e){
   if(tool === 100 || tool === 900){
     $('#grid-container td').removeClass('opt' + tool);
     this.className += ' opt' + tool;
-    if(tool === 100){
-      state.start = [x, y];
-    }
-    else {
+    // if(tool === 100){
+    //   state.start = [x, y];
+    // }
+    if(tool === 900) {
       state.end = [x, y];
     }
   }

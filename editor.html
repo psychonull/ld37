@@ -23,6 +23,7 @@
         background-color: transparent;
         color: #fff;
         margin-bottom: 6px;
+        margin-top: 5px;
       }
 
       .form-group {
@@ -53,6 +54,12 @@
         height: 64px;
         border: 1px solid #4B4B4B;
         position: relative;
+      }
+
+      .btn-default {
+        color: white;
+        background: black;
+        border: 1px solid white;
       }
 
       .tool {
@@ -131,6 +138,70 @@
         background-color: #F88C00;
       }
 
+      .opt6 {
+        border: 2px solid #d86161!important;
+        background-color: #000;
+      }
+      .opt6.selected {
+        background-color: #d86161;
+      }
+
+      .opt7 {
+        border: 2px solid #2db149!important;
+        background-color: #000;
+      }
+      .opt7.selected {
+        background-color: #2db149;
+      }
+
+      .opt8 {
+        border: 2px solid #c345a8!important;
+        background-color: #000;
+      }
+      .opt8.selected {
+        background-color: #c345a8;
+      }
+
+      .opt9 {
+        border: 2px solid #dbde2b!important;
+        background-color: #000;
+      }
+      .opt9.selected {
+        background-color: #dbde2b;
+      }
+
+      .opt10 {
+        border: 2px solid #de8e2b!important;
+        background-color: #000;
+      }
+      .opt10.selected {
+        background-color: #de8e2b;
+      }
+
+      .opt11 {
+        border: 2px solid #dac4a8!important;
+        background-color: #000;
+      }
+      .opt11.selected {
+        background-color: #dac4a8;
+      }
+
+      .opt12 {
+        border: 2px solid #735cf1!important;
+        background-color: #000;
+      }
+      .opt12.selected {
+        background-color: #735cf1;
+      }
+
+      .opt13 {
+        border: 2px solid #02f1fd!important;
+        background-color: #000;
+      }
+      .opt13.selected {
+        background-color: #02f1fd;
+      }
+
       .opt100, .opt900 {
         text-align: center;
       }
@@ -151,7 +222,6 @@
     <div id="editor" class="container">
       <div class="row panel">
         <div class="col-xs-9" id="cell-types">
-          Aliens:
           <button data-tileType="0" class="btn tool opt0">0</button>
           <button data-tileType="1" class="btn tool opt1">1</button>
           <button data-tileType="2" class="btn tool opt2">2</button>
@@ -166,8 +236,8 @@
           <button data-tileType="11" class="btn tool opt11">11</button>
           <button data-tileType="12" class="btn tool opt12">12</button>
           <button data-tileType="13" class="btn tool opt13">13</button>
-          <button data-tileType="100" class="btn tool start">X</button>
-          <button data-tileType="900" class="btn tool finish">O</button>
+          <button data-tileType="100" class="btn tool start">Char</button>
+          <button data-tileType="900" class="btn tool finish">Target</button>
         </div>
         <div class="col-xs-3">
           <button type="submit" class="btn btn-default" id="import">Import</button>
@@ -200,7 +270,33 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <textarea id="import-text" rows="20" style="width: 100%;"></textarea>
+            <textarea id="import-text" rows="20" style="width: 100%;">
+              {
+                  "name": "Level 1",
+                  "target": {
+                    "character": "pajaro",
+                    "position": [5, 5]
+                  },
+                  "aliens": [
+                      {
+                          "character": "wheeler",
+                          "position": [0, 0]
+                      },
+                      {
+                          "character": "arrugado",
+                          "position": [1, 1]
+                      },
+                      {
+                          "character": "pajaro",
+                          "position": [3, 0]
+                      },
+                      {
+                          "character": "huesos",
+                          "position": [0, 4]
+                      }
+                  ]
+              }
+            </textarea>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
