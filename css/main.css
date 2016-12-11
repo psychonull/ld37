@@ -3,8 +3,17 @@ body {
   height: 100%;
   margin: 0;
   overflow: hidden;
+  background-color: #000;
 }
 canvas {
-  display: block;
+  display: inline-block;
   cursor: none;
+  margin-top: 15px;
+  border: 1px dotted #131331;
+}
+.hud {
+  display: inline-block;
+  height: 600px;
+  border: 1px dotted #131331;
+  color: #f1f1f1;
 }

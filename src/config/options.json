@@ -1,3 +1,5 @@
 {
-  "tileSize": 32
+  "tileSize": 32,
+  "gameWidth": 800,
+  "gameHeight": 600
 }
