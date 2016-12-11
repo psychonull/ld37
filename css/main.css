@@ -110,3 +110,47 @@ canvas {
     50% {box-shadow: inset 0 0 200px purple;}
     100% {box-shadow: inset 0 0 30px purple;}
 }
+
+@keyframes colorscrazy {
+    0%   {color: purple;}
+    20%   {color: green;}
+    40%   {color: yellow;}
+    60%   {color: red;}
+    80%   {color: blue;}
+    100%   {color: purple;}
+}
+/* ------------- WIN SCREEN ----------*/
+
+.win-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.win-screen h1, .win-screen h2, .win-screen h3, .win-screen h4 {
+  font-family: 'Bungee Shade', cursive;
+  animation: colorscrazy 2s infinite;
+}
+
+.win-screen .headers {
+  flex: 5;
+}
+
+.win-screen p {
+  flex: 1;
+}
+
+.win-screen h1 {
+  font-size: 4em;
+}
+.win-screen h2 {
+  font-size: 3em;
+}
+.win-screen h3 {
+  font-size: 2em;
+}
+.win-screen h4 {
+  font-size: 1em;
+}
