@@ -6,6 +6,8 @@ const reset = next => (reducer, initialState) => next((state, action) => {
       return reducer(getDefaultState(), action)
     case 'GAME_CHANGE_LEVEL':
       return reducer(getLevelState(action.meta.level), action)
+    case 'GAME_START':
+      return reducer(getLevelState(0), action)
   }
 
   return reducer(state, action);

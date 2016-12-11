@@ -6,7 +6,7 @@ import {getCurrentLevel} from '../Prefabs/Room/selector';
 const mapStateToProps = (state) => {
   let currentLevel = getCurrentLevel(state);
   return {
-    level: currentLevel ? currentLevel.name : '--' ,
+    level: currentLevel ? currentLevel.name : null ,
     moves: state.room.moves
   }
 };

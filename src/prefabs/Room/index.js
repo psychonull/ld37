@@ -25,7 +25,7 @@ export const reducer = handleActions({
   }),
   ROOM_ALIEN_RELEASED: state => ({...state, alienSelected: null})
 }, {
-  level: 0,
+  level: null,
   moves: 0,
   alienSelected: null,
   aliens: []

@@ -1,3 +1,5 @@
+import {start as gameStart} from '../gameActions';
+
 class Menu extends Phaser.State {
 
   constructor() {
@@ -16,6 +18,7 @@ class Menu extends Phaser.State {
   update() {}
 
   startGame () {
+    $$.dispatch(gameStart());
     this.game.state.start('game');
   }
 
