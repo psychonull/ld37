@@ -26,8 +26,6 @@ class Target extends Phaser.Sprite {
     this.targetPosition = target.position;
     this.targetCharacter = target.character;
 
-    this.scale.setTo(0.5, 0.5);
-
     $$.observer.once(getState => {
       const {lastAlienMoved, win} = getState().target;
       return !win && lastAlienMoved && this.isExpectedAlien(lastAlienMoved);

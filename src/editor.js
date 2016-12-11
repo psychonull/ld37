@@ -90,13 +90,22 @@ $(document).on('ready', () => {
 
 });
 
-/*
-function getCharacterIndex(name) {
-  switch(name) {
-    case '0'
-  }
-}
-*/
+const charsByName = [
+  'pork',
+  'pulpo',
+  'tentacle',
+  'cockie',
+  'jasam',
+  'tresojos',
+  'ciclope',
+  'arrugado',
+  'tiritas',
+  'pajaro',
+  'wheeler',
+  'tiocosas',
+  'huesos'
+]
+
 function refreshState(level){
   // state.x = level.gridSize[0];
   // state.y = level.gridSize[1];
@@ -121,7 +130,9 @@ function refreshState(level){
     const shape = __characters[alien.character].shape
     const pos = alien.position
 
-    state.map[pos[0]][pos[1]] = 1
+    const value = charsByName.indexOf(alien.character);
+    state.map[pos[0]][pos[1]] = value
+
   })
 
   state.start = []

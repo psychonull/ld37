@@ -3,7 +3,7 @@ import {getGrid} from '../../config'
 class Cell extends Phaser.Sprite {
   constructor(game, options) {
     super(game, options.x, options.y, 'cell_gray', options.frame);
-    this.scale.setTo(0.5, 0.5);
+    // this.scale.setTo(0.5, 0.5);
   }
 }
 

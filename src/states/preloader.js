@@ -27,14 +27,6 @@ class Preloader extends Phaser.State {
   }
 
   loadResources() {
-      // load your resources here
-      this.game.load.image('placeholder1x1','assets/sprites/placeholder1x1.png');
-      this.game.load.image('placeholder1x2','assets/sprites/placeholder1x2.png');
-      this.game.load.image('placeholder1x3','assets/sprites/placeholder1x3.png');
-      this.game.load.image('placeholder2x1','assets/sprites/placeholder2x1.png');
-      this.game.load.image('placeholder2x2','assets/sprites/placeholder2x2.png');
-      this.game.load.image('placeholder3x1','assets/sprites/placeholder3x1.png');
-
       this.game.load.image('target1x1','assets/sprites/target1x1.png');
       this.game.load.image('target1x2','assets/sprites/target1x2.png');
       this.game.load.image('target1x3','assets/sprites/target1x3.png');
@@ -54,7 +46,7 @@ class Preloader extends Phaser.State {
 
       this.game.load.atlas('9_2x1', 'assets/spritesheets/9_2x1_rebuild.png', 'assets/spritesheets/9_2x1.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
       this.game.load.atlas('10_2x1', 'assets/spritesheets/10_2x1_rebuild.png', 'assets/spritesheets/10_2x1.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
-      
+
       this.game.load.atlas('11_1x2', 'assets/spritesheets/11_1x2_rebuild.png', 'assets/spritesheets/11_1x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
       this.game.load.atlas('12_1x2', 'assets/spritesheets/12_1x2_rebuild.png', 'assets/spritesheets/12_1x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
       this.game.load.atlas('13_1x2', 'assets/spritesheets/13_1x2_rebuild.png', 'assets/spritesheets/13_1x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
