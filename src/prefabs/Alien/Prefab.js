@@ -28,6 +28,7 @@ class Alien extends Phaser.Sprite {
     this.moving = false;
     this.animations.play('none', 1, true);
     this.playIdleAtRandom();
+    this.anchor.setTo(0, 0);
   }
 
   _setupAnimations(){
@@ -89,7 +90,7 @@ class Alien extends Phaser.Sprite {
   move(room, controls) {
     this.game.controls.disable();
 
-    if (this.canMove(this.id, controls.move, room.aliens)) {
+    if (!this.moving && this.canMove(this.id, controls.move, room.aliens)) {
       const alien = getAlien($$.getState(), this.id)
 
       const position = this._sumPosition(alien.position, [controls.move.x, controls.move.y]);
