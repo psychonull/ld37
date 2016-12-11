@@ -5,10 +5,14 @@ export default class Hud extends Component {
     return (
       this.props.level === null ?
         null :
-      <div>
-        <div>Level: {this.props.level}</div>
-        <div>Moves: {this.props.moves}</div>
-        <a onClick={this.props.onRestartLevelClick} href="">Restart level</a>
+      <div className="hud">
+        <div className="stats">
+          <div className="stat">Level: {this.props.level}</div>
+          <div className="stat">Moves: {this.props.moves}</div>
+        </div>
+        <div className="commands">
+          <a onClick={this.props.onRestartLevelClick} href="">Restart level</a>
+        </div>
       </div>
     );
   }
