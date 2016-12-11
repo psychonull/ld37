@@ -63,15 +63,20 @@ canvas {
   background-color: #000;
   z-index: 1000;
   color: #f1f1f1;
-  box-shadow: inset 0 0 30px purple;
-  animation: boxshadowcrazy .5s infinite;
+  
+  
 }
 .hidden {
   visibility: hidden;
 }
 
 /* -------- MENU  ----------- */
-
+.menu {
+  animation: boxshadowcrazy .5s infinite;
+  position:absolute;
+  width: 100%;
+  height: 100%;
+}
 .menu .game-title {
   font-family: 'Bungee Shade', cursive;
   color: purple;
