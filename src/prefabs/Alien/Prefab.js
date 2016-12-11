@@ -1,5 +1,5 @@
 import {action as roomActions} from '../Room/actions'
-import {getAlien} from '../Room'
+import {getAlien} from '../Room/selector'
 const options = require('../../config/options.json');
 
 class Alien extends Phaser.Sprite {

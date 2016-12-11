@@ -1,14 +1,21 @@
 const options = require('../../config/options.json');
 import Alien from '../Alien';
+import Target from '../Target';
 import {generate as newId} from 'shortid'
 import {action} from './actions'
+import {getCurrentLevel} from './selector'
 
 class Room extends Phaser.Group {
 
-  constructor(game, parent, level) {
+  constructor(game, parent) {
     super(game, parent);
 
+    const level = getCurrentLevel($$.getState())
     this.shape = new Array(level.room[0]).fill(new Array(level.room[1]).fill(1));
+
+    this.target = new Target(this.game)
+    this.add(this.target)
+
     this.createAliens(level)
   }
 

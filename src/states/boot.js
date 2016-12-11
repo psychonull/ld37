@@ -1,5 +1,7 @@
-import { createStore } from 'redux'
+import { createStore } from 'redux';
+import createStoreObserver from 'redux-store-observer';
 import reducer from '../reducers'
+
 const initialState = {
   config: {
     options: require('../config/options.json'),
@@ -16,6 +18,8 @@ class Boot extends Phaser.State {
 
   preload() {
     window.$$ = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+    window.$$.observer = createStoreObserver(window.$$);
+
     this.load.image('preloader', 'assets/preloader.gif');
   }
 

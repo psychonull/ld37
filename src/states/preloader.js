@@ -24,9 +24,19 @@ class Preloader extends Phaser.State {
 
   loadResources() {
       // load your resources here
+      this.game.load.image('placeholder1x1','assets/sprites/placeholder1x1.png');
+      this.game.load.image('placeholder1x2','assets/sprites/placeholder1x2.png');
       this.game.load.image('placeholder1x3','assets/sprites/placeholder1x3.png');
+      this.game.load.image('placeholder2x1','assets/sprites/placeholder2x1.png');
       this.game.load.image('placeholder2x2','assets/sprites/placeholder2x2.png');
       this.game.load.image('placeholder3x1','assets/sprites/placeholder3x1.png');
+
+      this.game.load.image('target1x1','assets/sprites/target1x1.png');
+      this.game.load.image('target1x2','assets/sprites/target1x2.png');
+      this.game.load.image('target1x3','assets/sprites/target1x3.png');
+      this.game.load.image('target2x1','assets/sprites/target2x1.png');
+      this.game.load.image('target2x2','assets/sprites/target2x2.png');
+      this.game.load.image('target3x1','assets/sprites/target3x1.png');
   }
 
   onLoadComplete() {

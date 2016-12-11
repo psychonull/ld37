@@ -2,6 +2,7 @@ import { createAction } from 'redux-actions';
 
 // Actions
 export const action = {
+  setLevel: createAction('ROOM_LEVEL_SET'),
   receiveAliens: createAction('ROOM_ALIENS_RECEIVE'),
   alienSelected: createAction('ROOM_ALIEN_SELECTED'),
   alienMoveTo: createAction('ROOM_ALIEN_SET_POSITION'),

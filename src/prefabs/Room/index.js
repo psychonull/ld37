@@ -3,11 +3,12 @@ export {actions} from './actions';
 
 import {handleActions} from 'redux-actions';
 
-export const getAliens = state => state.room.aliens
-export const getAlien = (state, _id) => getAliens(state).find(({id}) => id === _id)
-
 // Reducer
 export const reducer = handleActions({
+  ROOM_LEVEL_SET: (state, action) => ({...state,
+    level: action.payload
+  }),
+
   ROOM_ALIENS_RECEIVE: (state, action) => ({...state,
     aliens: action.payload
   }),
@@ -21,6 +22,7 @@ export const reducer = handleActions({
   }),
   ROOM_ALIEN_RELEASED: state => ({...state, alienSelected: null})
 }, {
+  level: 0,
   alienSelected: null,
   aliens: []
 });

@@ -2,13 +2,17 @@
     {
         "name": "Level 1",
         "room": [100, 100],
+        "target": {
+          "character": "placeholder1x3",
+          "position": [5, 5]
+        },
         "aliens": [
             {
                 "character": "placeholder1x3",
                 "position": [0, 0]
             },
             {
-                "character": "placeholder1x3",
+                "character": "placeholder1x1",
                 "position": [1, 1]
             },
             {
