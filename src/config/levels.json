@@ -1,7 +1,7 @@
 [
     {
         "name": "Level 1",
-        "room": [100, 100],
+        "room": [6, 8],
         "target": {
           "character": "placeholder1x3",
           "position": [5, 5]
@@ -27,7 +27,7 @@
     },
     {
         "name": "Level 2",
-        "room": [100, 100],
+        "room": [5, 5],
         "target": {
           "character": "placeholder1x1",
           "position": [3, 2]

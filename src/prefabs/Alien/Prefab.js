@@ -1,4 +1,5 @@
 import {action as roomActions} from '../Room/actions'
+import {getCurrentLevel} from '../Room/selector';
 import {getAlien} from '../Room/selector'
 const options = require('../../config/options.json');
 
@@ -43,16 +44,17 @@ class Alien extends Phaser.Sprite {
     // tween.to(toPos, 500, Phaser.Linear, true);
   }
 
+  _sumPosition(a, b){
+    return [a[0] + b[0], a[1] + b[1]];
+  }
+
   move(room, controls) {
     this.game.controls.disable();
 
     if (this.canMove(this.id, controls.move, room.aliens)) {
       const alien = getAlien($$.getState(), this.id)
 
-      const position = [
-        alien.position[0] + controls.move.x,
-        alien.position[1] + controls.move.y
-      ];
+      const position = this._sumPosition(alien.position, [controls.move.x, controls.move.y]);
 
       const x = options.tileSize * position[0];
       const y = options.tileSize * position[1];
@@ -70,13 +72,47 @@ class Alien extends Phaser.Sprite {
   // x === -1 is Left
   // y === -1 is Up
   canMove(alienId, {x, y}, aliens) {
-    // TODO: Implement Mati great algorithm
-    return true;
+    const level = getCurrentLevel($$.getState())
+    let map = new Array(level.room[1]).fill(1).map(() => new Array(level.room[0]).fill(0));
+    
+    const aliensAfterMove = this._getAliensMoved(aliens, alienId, [x, y]);
+    for(let i = 0; i < aliensAfterMove.length; i++){
+      let alien = aliensAfterMove[i];
+
+      for(let yi = 0; yi < alien.shape.length; yi++){
+        let row = map[yi + alien.position[1]];
+        if(typeof row === 'undefined'){
+          return false;
+        }
+        for(let xi = 0; xi < alien.shape[yi].length; xi++){
+          let cell = row[xi + alien.position[0]];
+          if(typeof cell === 'undefined'){
+            return false;
+          }
+          else {
+            map[yi + alien.position[1] ][xi + alien.position[0]] = cell + 1;
+          }
+        }
+      }
+    }
+    return !map.some(mapRow => mapRow.some(e => e > 1));
   }
 
   update() {
     // TODO: mark me as selected when
     // $$.getState().room.alienSelected === this.id
+  }
+  _cloneMap(m){
+    return m.map(mapRow => Array.from(mapRow));
+  }
+
+  _getAliensMoved(aliens, id, dir){
+    return aliens.map(alien => {
+      if(alien.id === id){
+        return Object.assign({}, alien, {position: this._sumPosition(alien.position, dir)});
+      }
+      else return alien;
+    });
   }
 
 }
