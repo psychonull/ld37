@@ -11,7 +11,6 @@ class Room extends Phaser.Group {
     super(game, parent);
 
     const level = getCurrentLevel($$.getState())
-    this.shape = new Array(level.room[1]).fill(1).map(() => new Array(level.room[0]).fill(0));
     this.target = new Target(this.game)
     this.add(this.target)
 

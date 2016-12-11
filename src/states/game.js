@@ -1,6 +1,7 @@
 import Controls from '../prefabs/Controls'
 import * as config from '../config';
 import Room from '../prefabs/Room';
+import Grid from '../prefabs/Grid';
 import {action as roomActions} from '../prefabs/Room/actions';
 import {restart, changeLevel, win} from '../gameActions';
 
@@ -16,6 +17,9 @@ class Game extends Phaser.State {
 
     this.room = new Room(this.game);
     this.game.add.existing(this.room);
+
+    this.grid = new Grid(this.game);
+    this.game.add.existing(this.grid);
 
     this.game.controls = new Controls(this.game)
     this.game.controls.enable()

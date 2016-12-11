@@ -1,7 +1,7 @@
 import {action as roomActions} from '../Room/actions'
-import {getCurrentLevel} from '../Room/selector';
 import {getAlien} from '../Room/selector'
-const options = require('../../config/options.json');
+const {tileSize} = require('../../config/options.json');
+import {getGrid} from '../../config'
 
 class Alien extends Phaser.Sprite {
 
@@ -56,8 +56,8 @@ class Alien extends Phaser.Sprite {
 
       const position = this._sumPosition(alien.position, [controls.move.x, controls.move.y]);
 
-      const x = options.tileSize * position[0];
-      const y = options.tileSize * position[1];
+      const x = tileSize * position[0];
+      const y = tileSize * position[1];
 
       this.animateMove({x, y}, () => {
         $$.dispatch(roomActions.alienMoveTo({id: this.id, position}));
@@ -72,9 +72,8 @@ class Alien extends Phaser.Sprite {
   // x === -1 is Left
   // y === -1 is Up
   canMove(alienId, {x, y}, aliens) {
-    const level = getCurrentLevel($$.getState())
-    let map = new Array(level.room[1]).fill(1).map(() => new Array(level.room[0]).fill(0));
-    
+    const map = getGrid($$.getState())
+
     const aliensAfterMove = this._getAliensMoved(aliens, alienId, [x, y]);
     for(let i = 0; i < aliensAfterMove.length; i++){
       let alien = aliensAfterMove[i];
