@@ -23,8 +23,6 @@ class Alien extends Phaser.Sprite {
     this.events.onInputDown.add(this.onInputDown, this);
 
 
-    this.scale.setTo(0.5, 0.5);
-    
     this.animationSpeed = 10;
     this._setupAnimations();
     this.animations.play('idle', this.animationSpeed, true);
@@ -101,9 +99,11 @@ class Alien extends Phaser.Sprite {
   playMovingAnimation(move){
     if(move.x === 1){
       this.animations.play('leftright', this.animationSpeed, true);
+      this.scale.x = Math.abs(this.scale.x);
     }
     else if(move.x === -1){
       this.animations.play('leftright', this.animationSpeed, true);
+      //this.scale.x = Math.abs(this.scale.x) * -1; //flip x, needs x anchor in 0.5
     }
     else if(move.y === 1){
       this.animations.play('updown', this.animationSpeed, true);
@@ -117,7 +117,8 @@ class Alien extends Phaser.Sprite {
   // x === -1 is Left
   // y === -1 is Up
   canMove(alienId, {x, y}, aliens) {
-    const map = getGrid($$.getState())
+    const transpose = m => m[0].map((x,i) => m.map(x => x[i]));
+    const map = transpose(getGrid($$.getState())); //hackahackia
 
     const aliensAfterMove = this._getAliensMoved(aliens, alienId, [x, y]);
     for(let i = 0; i < aliensAfterMove.length; i++){
