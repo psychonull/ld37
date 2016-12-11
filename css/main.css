@@ -17,3 +17,18 @@ canvas {
   border: 1px dotted #131331;
   color: #f1f1f1;
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align:center;
+  background-color: #000;
+  z-index: 1000;
+  color: #f1f1f1;
+  box-shadow: inset 0 0 30px purple;
+}
+.hidden {
+  visibility: hidden;
+}

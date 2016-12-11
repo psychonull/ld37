@@ -7,20 +7,16 @@ class Menu extends Phaser.State {
   }
   
   create() {
-    var text = this.add.text(this.game.width * 0.5, this.game.height * 0.5, 'MENU', {
-      font: '42px Arial', fill: '#ffffff', align: 'center'
-    });
-    text.anchor.set(0.5);
 
-    this.input.onDown.add(this.startGame, this);
+    $$.observer.once(getState => getState().gameState, () => {
+      console.log('enter game');
+
+      this.game.state.start('game');
+    });
+
   }
 
   update() {}
-
-  startGame () {
-    $$.dispatch(gameStart());
-    this.game.state.start('game');
-  }
 
 }
 
