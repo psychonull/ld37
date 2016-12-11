@@ -25,6 +25,7 @@ class Grid extends Phaser.Group {
         this.add(c)
       })
     })
+    this.position.setTo(state.config.options.offsetX, state.config.options.offsetY);
   }
 }
 

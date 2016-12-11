@@ -12,9 +12,9 @@ const getLevel = (state, i) => {
 }
 
 export const getGrid = state => {
-  const {tileSize, gameWidth, gameHeight} = state.config.options
-  const rows = Math.floor(gameHeight/tileSize);
-  const cols = Math.floor(gameWidth/tileSize);
+  const {tileSize, gameWidth, gameHeight, offsetX, offsetY} = state.config.options
+  const rows = Math.floor((gameHeight - offsetY)/tileSize);
+  const cols = Math.floor((gameWidth - offsetX)/tileSize);
 
   return new Array(cols).fill(1).map(() => new Array(rows).fill(0));
 }

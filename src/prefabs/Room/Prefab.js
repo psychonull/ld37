@@ -20,6 +20,7 @@ class Room extends Phaser.Group {
   createAliens(level) {
     const _aliens = []
     const {config} = $$.getState()
+    const {offsetX, offsetY} = config.options;
 
     this.aliens = level.aliens.map(({position, character}) => {
       const id = newId();
@@ -29,8 +30,8 @@ class Room extends Phaser.Group {
 
       return new Alien(this.game, {
         id,
-        x: options.tileSize * position[0],
-        y: options.tileSize * position[1],
+        x: options.tileSize * position[0] + offsetX,
+        y: options.tileSize * position[1] + offsetY,
         character
       });
     });

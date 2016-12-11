@@ -83,8 +83,9 @@ class Alien extends Phaser.Sprite {
 
       const position = this._sumPosition(alien.position, [controls.move.x, controls.move.y]);
 
-      const x = tileSize * position[0];
-      const y = tileSize * position[1];
+      const {offsetX, offsetY} = $$.getState().config.options;
+      const x = tileSize * position[0] + offsetX;
+      const y = tileSize * position[1] + offsetY;
 
       this.playMovingAnimation(controls.move);
       this.animateMove({x, y}, () => {
