@@ -6,6 +6,7 @@ class Alien extends Phaser.Sprite {
 
   constructor(game, options) {
     let character = $$.getState().config.characters[options.character];
+
     if(!character){
       throw new Error(`cannot find character ${options.character} in characters.json`);
     }
