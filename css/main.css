@@ -154,3 +154,63 @@ canvas {
 .win-screen h4 {
   font-size: 1em;
 }
+
+.hud .target-img{
+  background-size: cover;
+}
+.hud .target-img-1x1 {
+  width: 64px;
+  height: 64px;
+} 
+.hud .target-img-2x1 {
+  width: 128px;
+  height: 64px;
+} 
+.hud .target-img-1x2 {
+  width: 64px;
+  height: 128px;
+} 
+.hud .target-img-2x2 {
+  width: 128px;
+  height: 128px;
+} 
+
+.img-1_1x1 {
+  background-image: url('/assets/spritesheets/1_1x1.png')
+}
+.img-2_1x1 {
+  background-image: url('/assets/spritesheets/2_1x1.png')
+}
+.img-3_1x1 {
+  background-image: url('/assets/spritesheets/3_1x1.png')
+}
+.img-4_1x1 {
+  background-image: url('/assets/spritesheets/4_1x1.png')
+}
+.img-5_2x2 {
+  background-image: url('/assets/spritesheets/5_2x2.png')
+}
+.img-6_2x2 {
+  background-image: url('/assets/spritesheets/6_2x2.png')
+}
+.img-7_2x2 {
+  background-image: url('/assets/spritesheets/7_2x2.png')
+}
+.img-8_2x2 {
+  background-image: url('/assets/spritesheets/8_2x2.png')
+}
+.img-9_2x1 {
+  background-image: url('/assets/spritesheets/9_2x1.png')
+}
+.img-10_2x1 {
+  background-image: url('/assets/spritesheets/10_2x1.png')
+}
+.img-11_1x2 {
+  background-image: url('/assets/spritesheets/11_1x2.png')
+}
+.img-12_1x2 {
+  background-image: url('/assets/spritesheets/12_1x2.png')
+}
+.img-13_1x2 {
+  background-image: url('/assets/spritesheets/13_1x2.png')
+}
