@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
   let currentLevel = getCurrentLevel(state);
   return {
     level: currentLevel ? currentLevel.name : null ,
+    maxMoves: currentLevel ? currentLevel.maxMoves : null,
     targetSprite: currentLevel ? state.config.characters[currentLevel.target.character].sprite : null,
     sound: state.gameStats.sound,
     moves: state.room.moves
