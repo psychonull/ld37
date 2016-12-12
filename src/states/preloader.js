@@ -52,6 +52,12 @@ class Preloader extends Phaser.State {
 
       this.game.load.image('cell_gray','assets/sprites/cell_gray.png');
       this.game.load.image('cell_target','assets/sprites/cell_target.png');
+
+      this.game.load.audio('ending_5', ['assets/sound/ending_5.mp3', 'assets/sound/ending_5.ogg']);
+      this.game.load.audio('accion_2', ['assets/sound/accion_2.mp3', 'assets/sound/accion_2.ogg']);
+      this.game.load.audio('accion_9', ['assets/sound/accion_9.mp3', 'assets/sound/accion_9.ogg']);
+      this.game.load.audio('suspenso_4', ['assets/sound/suspenso_4.mp3', 'assets/sound/suspenso_4.ogg']);
+      this.game.load.audio('intermedio', ['assets/sound/intermedio.mp3', 'assets/sound/intermedio.ogg']);
   }
 
   onLoadComplete() {

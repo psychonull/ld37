@@ -16,7 +16,10 @@ export default class Hud extends Component {
           </div>
         </div>
         <div className="commands">
-          <a onClick={this.props.onRestartLevelClick} href="">Restart level</a>
+          <div><a onClick={this.props.onRestartLevelClick} href="">Restart level</a></div>
+          <div><a onClick={this.props.onToggleSoundClick} href="">
+            { this.props.sound ? 'Sound off' : 'Sound on'}
+          </a></div>
         </div>
       </div>
     );
