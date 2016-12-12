@@ -5,6 +5,9 @@
           "character": "pajaro",
           "position": [5, 5]
         },
+        "lights": {
+          "type": "both"
+        },
         "aliens": [
             {
                 "character": "pork",

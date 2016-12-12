@@ -41,7 +41,7 @@ class Light extends Phaser.Sprite {
 class FlashingLight extends Phaser.Sprite {
 
   defaultOptions = {
-    alpha: 0.9,
+    alpha: 0.5,
     rithm: [1000, 100, 1000, 100, 1000, 100, 50, 50, 50, 50, 50, 50] // MAKE IT PAIR
   }
 
@@ -53,7 +53,7 @@ class FlashingLight extends Phaser.Sprite {
     this.scale.setTo(100);
     this.position.setTo(this.game.world.centerX, this.game.world.centerY);
     this.alpha = this.options.alpha;
-    
+
     // starts off
     this.visible = false;
     this.currentFlash = -1;
@@ -97,7 +97,7 @@ class Lights extends Phaser.Group {
 
   defaultOptions = {
     maxScale: 2,
-    amount: 20,
+    amount: 10,
     minSpeed: 300,
     maxSpeed: 700
   };
