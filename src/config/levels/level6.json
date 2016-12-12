@@ -1,0 +1,219 @@
+{
+  "name": "level 6",
+  "music": "accion_2",
+  "lights": {
+    "type": "both"
+  },
+  "target": {
+    "character": "ciclope",
+    "position": [
+      5,
+      0
+    ]
+  },
+  "aliens": [
+    {
+      "character": "jasam",
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        2,
+        0
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        4,
+        0
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        7,
+        0
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        8,
+        0
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        10,
+        0
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        0,
+        2
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        2,
+        2
+      ]
+    },
+    {
+      "character": "tiocosas",
+      "position": [
+        4,
+        2
+      ]
+    },
+    {
+      "character": "tiocosas",
+      "position": [
+        5,
+        2
+      ]
+    },
+    {
+      "character": "tiocosas",
+      "position": [
+        6,
+        2
+      ]
+    },
+    {
+      "character": "tiocosas",
+      "position": [
+        7,
+        2
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        8,
+        2
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        10,
+        2
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        0,
+        4
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        2,
+        4
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        4,
+        4
+      ]
+    },
+    {
+      "character": "tentacle",
+      "position": [
+        5,
+        4
+      ]
+    },
+    {
+      "character": "tentacle",
+      "position": [
+        6,
+        4
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        7,
+        4
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        8,
+        4
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        10,
+        4
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        5,
+        5
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        0,
+        6
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        2,
+        6
+      ]
+    },
+    {
+      "character": "tentacle",
+      "position": [
+        4,
+        6
+      ]
+    },
+    {
+      "character": "tentacle",
+      "position": [
+        7,
+        6
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        8,
+        6
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        10,
+        6
+      ]
+    }
+  ]
+}
