@@ -1,0 +1,282 @@
+{
+  "name": "Level 3",
+  "music": "accion_9",
+  "lights": {
+    "type": "both"
+  },
+  "target": {
+    "character": "pork",
+    "position": [
+      7,
+      0
+    ]
+  },
+  "aliens": [
+    {
+      "character": "cockie",
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        1,
+        0
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        2,
+        0
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        3,
+        0
+      ]
+    },
+    {
+      "character": "tentacle",
+      "position": [
+        4,
+        0
+      ]
+    },
+    {
+      "character": "tentacle",
+      "position": [
+        5,
+        0
+      ]
+    },
+    {
+      "character": "tresojos",
+      "position": [
+        8,
+        0
+      ]
+    },
+    {
+      "character": "tresojos",
+      "position": [
+        10,
+        0
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        0,
+        1
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        1,
+        1
+      ]
+    },
+    {
+      "character": "tresojos",
+      "position": [
+        2,
+        1
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        4,
+        1
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        5,
+        1
+      ]
+    },
+    {
+      "character": "arrugado",
+      "position": [
+        6,
+        1
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        0,
+        2
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        1,
+        2
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        4,
+        2
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        5,
+        2
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        8,
+        2
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        10,
+        2
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        0,
+        3
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        2,
+        3
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        4,
+        3
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        5,
+        3
+      ]
+    },
+    {
+      "character": "pork",
+      "position": [
+        7,
+        3
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        8,
+        3
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        10,
+        3
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        0,
+        4
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        2,
+        4
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        5,
+        4
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        6,
+        4
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        0,
+        5
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        2,
+        5
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        6,
+        5
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        8,
+        5
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        10,
+        5
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        4,
+        6
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        6,
+        6
+      ]
+    }
+  ]
+}

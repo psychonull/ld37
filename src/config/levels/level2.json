@@ -1,0 +1,286 @@
+{
+  "name": "Level 2",
+  "music": "intermedio",
+  "target": {
+    "character": "pajaro",
+    "position": [2, 0]
+  },
+  "lights": {
+    "type": "both"
+  },
+  "aliens": [
+    {
+      "character": "pork",
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        1,
+        0
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        4,
+        0
+      ]
+    },
+    {
+      "character": "tentacle",
+      "position": [
+        5,
+        0
+      ]
+    },
+    {
+      "character": "pork",
+      "position": [
+        6,
+        0
+      ]
+    },
+    {
+      "character": "pork",
+      "position": [
+        7,
+        0
+      ]
+    },
+    {
+      "character": "pork",
+      "position": [
+        8,
+        0
+      ]
+    },
+    {
+      "character": "pork",
+      "position": [
+        9,
+        0
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        10,
+        0
+      ]
+    },
+    {
+      "character": "jasam",
+      "position": [
+        0,
+        1
+      ]
+    },
+    {
+      "character": "tresojos",
+      "position": [
+        2,
+        1
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        4,
+        1
+      ]
+    },
+    {
+      "character": "arrugado",
+      "position": [
+        6,
+        1
+      ]
+    },
+    {
+      "character": "tiocosas",
+      "position": [
+        8,
+        1
+      ]
+    },
+    {
+      "character": "tiocosas",
+      "position": [
+        9,
+        1
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        10,
+        2
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        0,
+        3
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        2,
+        3
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        6,
+        3
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        7,
+        3
+      ]
+    },
+    {
+      "character": "huesos",
+      "position": [
+        8,
+        3
+      ]
+    },
+    {
+      "character": "huesos",
+      "position": [
+        9,
+        3
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        0,
+        4
+      ]
+    },
+    {
+      "character": "tiocosas",
+      "position": [
+        1,
+        4
+      ]
+    },
+    {
+      "character": "huesos",
+      "position": [
+        2,
+        4
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        3,
+        4
+      ]
+    },
+    {
+      "character": "tresojos",
+      "position": [
+        10,
+        4
+      ]
+    },
+    {
+      "character": "pulpo",
+      "position": [
+        3,
+        5
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        4,
+        5
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        5,
+        5
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        6,
+        5
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        7,
+        5
+      ]
+    },
+    {
+      "character": "huesos",
+      "position": [
+        8,
+        5
+      ]
+    },
+    {
+      "character": "huesos",
+      "position": [
+        9,
+        5
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        0,
+        6
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        2,
+        6
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        4,
+        6
+      ]
+    },
+    {
+      "character": "cockie",
+      "position": [
+        5,
+        6
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        10,
+        6
+      ]
+    }
+  ]
+}

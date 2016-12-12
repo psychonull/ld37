@@ -1,0 +1,40 @@
+{
+  "name": "Level 1",
+  "music": "intermedio",
+  "lights": {
+    "type": "moving",
+    "amount": 3,
+    "minSpeed": 100,
+    "maxSpeed": 250
+  },
+  "target": {
+    "character": "pork",
+    "position": [
+      6,
+      0
+    ]
+  },
+  "aliens": [
+    {
+      "character": "jasam",
+      "position": [
+        2,
+        1
+      ]
+    },
+    {
+      "character": "pork",
+      "position": [
+        5,
+        2
+      ]
+    },
+    {
+      "character": "huesos",
+      "position": [
+        8,
+        3
+      ]
+    }
+  ]
+}

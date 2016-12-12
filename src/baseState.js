@@ -1,5 +1,5 @@
 const options = require('./config/options.json');
-const levels = require('./config/levels.json');
+const levels = require('./config/levels');
 const characters = require('./config/characters.json');
 
 const config = {

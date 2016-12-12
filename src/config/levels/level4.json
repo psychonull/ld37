@@ -1,0 +1,8 @@
+{"name":"N - Some parties are just boring","target":{"character":"pork","position":[5,0]},"aliens":[{"character":"pulpo","position":[0,0]},{"character":"tiocosas","position":[3,0]},{"character":"ciclope","position":[7,0]},{"character":"jasam","position":[4,1]},{"character":"tentacle","position":[6,1]},{"character":"tiritas","position":[9,1]},{"character":"pulpo","position":[11,1]},{"character":"wheeler","position":[3,2]},{"character":"huesos","position":[7,2]},{"character":"ciclope","position":[8,2]},{"character":"pulpo","position":[10,2]},{"character":"tiocosas","position":[11,2]},{"character":"tresojos","position":[1,3]},{"character":"ciclope","position":[4,3]},{"character":"pork","position":[6,3]},{"character":"pajaro","position":[6,4]},{"character":"tentacle","position":[8,4]},{"character":"wheeler","position":[10,4]},{"character":"tresojos","position":[1,5]},{"character":"cockie","position":[3,5]},{"character":"tiritas","position":[4,5]},{"character":"tiocosas","position":[6,5]},{"character":"jasam","position":[8,5]},{"character":"pulpo","position":[0,6]}],
+  "maxMoves": 11,
+  "music": "accion_9",
+  "lights": {
+    "type": "moving",
+    "amount": 10
+  }
+  }
