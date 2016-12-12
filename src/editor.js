@@ -122,6 +122,21 @@ function setAlien(alien) {
 
   const value = charsByName.indexOf(alien.character);
 
+  // Check before
+  let canBeAdded = true
+  shape.forEach((row, i) => {
+    row.forEach((cell, j) => {
+      if (state.map[i + pos[1]][j + pos[0]] !== 0){
+        canBeAdded = false
+      }
+    })
+  })
+
+  if (!canBeAdded){
+    alert('No enougt room to put it there!')
+    return;
+  }
+
   // Complete the shape for reference
   shape.forEach((row, i) => {
     row.forEach((cell, j) => {
@@ -203,6 +218,14 @@ function refreshControlsFromState(){
       const charCSS = character ? 'char-' + character : '';
       const css = `${'opt' + value} ${charCSS}`;
       let $td = $(`<td data-location="${j}-${i}" class="${css}" >`);
+
+      if (character) {
+        const sprite = __characters[character].sprite
+        $td.css({
+          backgroundImage: `url('/assets/spritesheets/${sprite}.png')`,
+          backgroundSize: 'cover'
+        })
+      }
 
       $row.append($td);
     }
