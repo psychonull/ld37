@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import Hud from '../components/Hud.jsx';
 import {action as roomActions} from '../prefabs/Room/actions';
-import {getCurrentLevel} from '../Prefabs/Room/selector';
+import {getCurrentLevel} from '../prefabs/Room/selector';
 
 const mapStateToProps = (state) => {
   let currentLevel = getCurrentLevel(state);

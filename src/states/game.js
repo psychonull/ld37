@@ -4,6 +4,7 @@ import Room from '../prefabs/Room';
 import Grid from '../prefabs/Grid';
 import {action as roomActions} from '../prefabs/Room/actions';
 import {restart, changeLevel, win} from '../gameActions';
+import Lights from '../prefabs/Lights';
 
 class Game extends Phaser.State {
 
@@ -15,11 +16,18 @@ class Game extends Phaser.State {
     const state = $$.getState()
     const currentLevel = config.select.level(state, state.room.level);
 
-    this.room = new Room(this.game);
-    this.game.add.existing(this.room);
+    this.game.add.sprite(0, 0, 'bg');
 
     this.grid = new Grid(this.game);
     this.game.add.existing(this.grid);
+
+    this.room = new Room(this.game);
+    this.game.add.existing(this.room);
+
+    if(currentLevel.lights){
+      this.lights = new Lights(this.game, null, currentLevel.lights);
+      this.game.add.existing(this.lights);
+    }
 
     this.game.controls = new Controls(this.game)
     this.game.controls.enable()

@@ -15,9 +15,11 @@ class Target extends Phaser.Sprite {
       throw new Error(`Target: cannot find character ${targetChar} in characters.json`);
     }
 
+    const {offsetX, offsetY} = state.config.options;
+
     const pos = {
-      x: _options.tileSize * target.position[0],
-      y: _options.tileSize * target.position[1]
+      x: _options.tileSize * target.position[0] + offsetX,
+      y: _options.tileSize * target.position[1] + offsetY
     };
 
     const shape = expecChar.shape;

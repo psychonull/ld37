@@ -1,5 +1,7 @@
 {
   "tileSize": 64,
+  "offsetX": 40,
+  "offsetY": 170,
   "gameWidth": 832,
   "gameHeight": 640
 }

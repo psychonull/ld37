@@ -23,19 +23,22 @@ class Alien extends Phaser.Sprite {
     this.events.onInputDown.add(this.onInputDown, this);
 
 
-    this.scale.setTo(0.5, 0.5);
-    
-    this.animationSpeed = 10;
+    this.animationSpeed = 8;
     this._setupAnimations();
-    this.animations.play('idle', this.animationSpeed, true);
+    this.moving = false;
+    this.animations.play('none', 1, true);
+    this.playIdleAtRandom();
+    this.anchor.setTo(0, 0);
   }
 
   _setupAnimations(){
     let [spriteIndex, spriteDimensions] = this.character.sprite.split('_');
+    this.animations.add('none', [`${spriteIndex}_iddle_1_${spriteDimensions}_sprite`]);
     this.animations.add('idle', [
       `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
       `${spriteIndex}_iddle_2_${spriteDimensions}_sprite`,
-      `${spriteIndex}_iddle_3_${spriteDimensions}_sprite`
+      `${spriteIndex}_iddle_3_${spriteDimensions}_sprite`,
+      `${spriteIndex}_iddle_2_${spriteDimensions}_sprite`
     ]);
     this.animations.add('leftright', [
       `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
@@ -47,6 +50,15 @@ class Alien extends Phaser.Sprite {
       `${spriteIndex}_updown_2_${spriteDimensions}_sprite`,
       `${spriteIndex}_updown_3_${spriteDimensions}_sprite`
     ]);
+  }
+
+  playIdleAtRandom(){
+    if(!this.moving){
+      this.animations.play('idle', this.animationSpeed);
+    }
+    this.game.time.events.add(this.game.rnd.integerInRange(1000, 2000), () => {
+      this.playIdleAtRandom();
+    });
   }
 
   onInputDown() {
@@ -78,18 +90,20 @@ class Alien extends Phaser.Sprite {
   move(room, controls) {
     this.game.controls.disable();
 
-    if (this.canMove(this.id, controls.move, room.aliens)) {
+    if (!this.moving && this.canMove(this.id, controls.move, room.aliens)) {
       const alien = getAlien($$.getState(), this.id)
 
       const position = this._sumPosition(alien.position, [controls.move.x, controls.move.y]);
 
-      const x = tileSize * position[0];
-      const y = tileSize * position[1];
+      const {offsetX, offsetY} = $$.getState().config.options;
+      const x = tileSize * position[0] + offsetX;
+      const y = tileSize * position[1] + offsetY;
 
       this.playMovingAnimation(controls.move);
       this.animateMove({x, y}, () => {
         $$.dispatch(roomActions.alienMoveTo({id: this.id, position}));
-        this.animations.play('idle', this.animationSpeed, true);
+        this.animations.play('none', 1, true);
+        this.moving = false;
       })
     }
 
@@ -98,11 +112,14 @@ class Alien extends Phaser.Sprite {
   }
 
   playMovingAnimation(move){
+    this.moving = true;
     if(move.x === 1){
       this.animations.play('leftright', this.animationSpeed, true);
+      this.scale.x = Math.abs(this.scale.x);
     }
     else if(move.x === -1){
       this.animations.play('leftright', this.animationSpeed, true);
+      //this.scale.x = Math.abs(this.scale.x) * -1; //flip x, needs x anchor in 0.5
     }
     else if(move.y === 1){
       this.animations.play('updown', this.animationSpeed, true);
@@ -116,7 +133,8 @@ class Alien extends Phaser.Sprite {
   // x === -1 is Left
   // y === -1 is Up
   canMove(alienId, {x, y}, aliens) {
-    const map = getGrid($$.getState())
+    const transpose = m => m[0].map((x,i) => m.map(x => x[i]));
+    const map = transpose(getGrid($$.getState())); //hackahackia
 
     const aliensAfterMove = this._getAliensMoved(aliens, alienId, [x, y]);
     for(let i = 0; i < aliensAfterMove.length; i++){

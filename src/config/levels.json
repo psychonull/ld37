@@ -7,20 +7,56 @@
         },
         "aliens": [
             {
-                "character": "wheeler",
+                "character": "pork",
                 "position": [0, 0]
             },
             {
-                "character": "arrugado",
-                "position": [1, 1]
+                "character": "pulpo",
+                "position": [1, 0]
             },
             {
-                "character": "pajaro",
+                "character": "tentacle",
+                "position": [2, 0]
+            },
+            {
+                "character": "cockie",
                 "position": [3, 0]
             },
             {
-                "character": "huesos",
+                "character": "jasam",
+                "position": [0, 1]
+            },
+            {
+                "character": "tresojos",
+                "position": [2, 1]
+            },
+            {
+                "character": "ciclope",
+                "position": [4, 1]
+            },
+            {
+                "character": "arrugado",
+                "position": [6, 1]
+            },
+            {
+                "character": "tiritas",
+                "position": [0, 3]
+            },
+            {
+                "character": "pajaro",
+                "position": [2, 3]
+            },
+            {
+                "character": "wheeler",
                 "position": [0, 4]
+            },
+            {
+                "character": "tiocosas",
+                "position": [1, 4]
+            },
+            {
+                "character": "huesos",
+                "position": [2, 4]
             }
         ]
     },
@@ -29,6 +65,9 @@
         "target": {
           "character": "pork",
           "position": [3, 2]
+        },
+        "lights": {
+          "type": "both"
         },
         "aliens": [
             {
