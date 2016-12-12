@@ -16,6 +16,14 @@ export default class Hud extends Component {
           </div>
         </div>
         <div className="commands">
+          {
+            this.props.maxMoves ?
+              <div className="stat">
+                <span>Try to beat this level in <b>{this.props.maxMoves}</b> moves</span> 
+              </div>
+              :
+              null
+          }
           <div><a onClick={this.props.onRestartLevelClick} href="">Restart level</a></div>
           <div><a onClick={this.props.onToggleSoundClick} href="">
             { this.props.sound ? 'Sound off' : 'Sound on'}
