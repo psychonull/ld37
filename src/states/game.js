@@ -16,6 +16,7 @@ class Game extends Phaser.State {
     const state = $$.getState()
     const currentLevel = config.select.level(state, state.room.level);
 
+    this.game.sound.volume = state.config.options.volume;
     this.game.add.sprite(0, 0, 'bg');
 
     this.grid = new Grid(this.game);
@@ -27,6 +28,12 @@ class Game extends Phaser.State {
     if(currentLevel.lights){
       this.lights = new Lights(this.game, null, currentLevel.lights);
       this.game.add.existing(this.lights);
+    }
+
+    if(currentLevel.music){
+      this.music = this.game.add.audio(currentLevel.music);
+      this.music.loop = true;
+      this.music.play();
     }
 
     this.game.controls = new Controls(this.game)
@@ -59,6 +66,8 @@ class Game extends Phaser.State {
 
       this.game.state.start('win');
     });
+    
+    $$.subscribe(() => this.game.sound.mute = !$$.getState().gameStats.sound);
 
     this.restartKey = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
     this.restartKey.onDown.add(() => $$.dispatch(roomActions.restartLevel()));
@@ -71,6 +80,12 @@ class Game extends Phaser.State {
 
   endGame() {
     this.game.state.start('gameover');
+  }
+
+  shutdown(){
+    if(this.music){
+      this.music.stop();
+    }
   }
 
 }

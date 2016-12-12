@@ -3,5 +3,6 @@
   "offsetX": 40,
   "offsetY": 170,
   "gameWidth": 832,
-  "gameHeight": 640
+  "gameHeight": 640,
+  "volume": 0.5
 }

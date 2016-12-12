@@ -1,6 +1,7 @@
 [
     {
         "name": "Level 1",
+        "music": "intermedio",
         "target": {
           "character": "pajaro",
           "position": [5, 5]
@@ -65,12 +66,16 @@
     },
     {
         "name": "Level 2",
+        "music": "ending_5",
         "target": {
           "character": "pork",
           "position": [3, 2]
         },
         "lights": {
-          "type": "both"
+          "type": "moving",
+          "amount": 2,
+          "minSpeed": 50,
+          "maxSpeed": 200
         },
         "aliens": [
             {
