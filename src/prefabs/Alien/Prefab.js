@@ -56,7 +56,7 @@ class Alien extends Phaser.Sprite {
     if(!this.moving){
       this.animations.play('idle', this.animationSpeed);
     }
-    this.game.time.events.add(this.game.rnd.integerInRange(1000, 2000), () => {
+    this.game.time.events.add(this.game.rnd.integerInRange(0, 100), () => {
       this.playIdleAtRandom();
     });
   }

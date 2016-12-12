@@ -3,7 +3,7 @@ import * as config from '../config';
 import Room from '../prefabs/Room';
 import Grid from '../prefabs/Grid';
 import {action as roomActions} from '../prefabs/Room/actions';
-import {restart, changeLevel, win} from '../gameActions';
+import {changeLevel, win} from '../gameActions';
 import Lights from '../prefabs/Lights';
 
 class Game extends Phaser.State {

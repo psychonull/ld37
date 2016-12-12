@@ -66,6 +66,21 @@
         position: relative;
       }
 
+      #grid-container tr:first-child td::before {
+        position: absolute;
+        content: 'DOOR';
+        top: -12px;
+        left: 0;
+        color:  silver;
+        width: 64px;
+        text-align: center;
+      }
+
+      #grid-container tr:first-child td:first-child::before,
+      #grid-container tr:first-child td:last-child::before {
+        content: '';
+      }
+
       .btn-default {
         color: white;
         background: black;

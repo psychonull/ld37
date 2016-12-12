@@ -3,7 +3,7 @@
         "name": "Level 1",
         "target": {
           "character": "pajaro",
-          "position": [5, 5]
+          "position": [2, 0]
         },
         "lights": {
           "type": "both"
@@ -19,11 +19,11 @@
             },
             {
                 "character": "tentacle",
-                "position": [2, 0]
+                "position": [5, 0]
             },
             {
                 "character": "cockie",
-                "position": [3, 0]
+                "position": [4, 0]
             },
             {
                 "character": "jasam",
@@ -67,7 +67,7 @@
         "name": "Level 2",
         "target": {
           "character": "pork",
-          "position": [3, 2]
+          "position": [3, 0]
         },
         "lights": {
           "type": "both"

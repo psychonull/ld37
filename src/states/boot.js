@@ -17,10 +17,14 @@ class Boot extends Phaser.State {
   }
 
   preload() {
-    const enhancedStore = compose(
-      resetStore,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )(createStore)
+    let enhancedStore;
+
+    if (window.__REDUX_DEVTOOLS_EXTENSION__) {
+      enhancedStore = compose(resetStore, window.__REDUX_DEVTOOLS_EXTENSION__())(createStore)
+    }
+    else {
+      enhancedStore = compose(resetStore)(createStore)
+    }
 
     window.$$ = enhancedStore(reducer, getDefaultState(true))
     window.$$.observer = createStoreObserver(window.$$);
