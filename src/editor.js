@@ -9,34 +9,37 @@ const x = Math.floor(gameWidth/tileSize);
 
 const getBaseGrid =() => new Array(y).fill(1).map(() => new Array(x).fill(0));
 
+const charsByName = [
+  '',
+  'pork',
+  'pulpo',
+  'tentacle',
+  'cockie',
+  'jasam',
+  'tresojos',
+  'ciclope',
+  'arrugado',
+  'tiritas',
+  'pajaro',
+  'wheeler',
+  'tiocosas',
+  'huesos'
+]
+
 let $ = window.$;
 let state = {
   x,
   y,
-  start: null,
+  name: '',
   end: null,
-  map: null,
-  author: null
+  map: null
 };
 let selectedTool = null;
 
-
 $(document).on('ready', () => {
-
-  // state.x = parseInt($('#x').val());
-  // state.y = parseInt($('#y').val());
   onChangeGridSize();
-/*
-  $('#x, #y').on('change', function() {
-    state[this.id] = parseInt($(this).val());
-    onChangeGridSize();
-  });
+  setToolImages();
 
-  $('#author').on('change', function(){
-    state.author = $(this).val();
-    refreshExportButton();
-  });
-*/
   $(document).on('keypress', function(e){
     let controlIndex = e.keyCode - 49;
     let btn = $('#cell-types button').get(controlIndex);
@@ -51,8 +54,27 @@ $(document).on('ready', () => {
 
   $('.tool').on('click', function(e){
     e.preventDefault();
-    selectedTool = parseInt($(this).data('tiletype'));
-    $('.tool').removeClass('selected');
+
+    const clickedTool = parseInt($(this).data('tiletype'));
+    if (clickedTool === 100) {
+      if (selectedTool > 0 && selectedTool < 100) {
+        state.end = state.end || {};
+        if (state.end.character !== charsByName[selectedTool]){
+          removeTarget();
+          refreshControlsFromState();
+        }
+        state.end.character = charsByName[selectedTool];
+        setToolImages();
+      }
+      else {
+        alert('Click on a Tool Character first and then click here again')
+      }
+      return;
+    }
+
+    selectedTool = clickedTool
+
+    $('.tool:not(.start)').removeClass('selected');
     $(this).addClass('selected');
   });
 
@@ -87,127 +109,129 @@ $(document).on('ready', () => {
     $(this).select();
   });
 
+  $('#level-name').on('keyup', function() {
+    state.name = $(this).val();
+    refreshExportButton();
+  });
 
 });
 
-const charsByName = [
-  'pork',
-  'pulpo',
-  'tentacle',
-  'cockie',
-  'jasam',
-  'tresojos',
-  'ciclope',
-  'arrugado',
-  'tiritas',
-  'pajaro',
-  'wheeler',
-  'tiocosas',
-  'huesos'
-]
+function setAlien(alien) {
+  const shape = __characters[alien.character].shape
+  const pos = alien.position
 
-function refreshState(level){
-  // state.x = level.gridSize[0];
-  // state.y = level.gridSize[1];
-  // state.maxMoves = level.maxMoves;
-  // state.author = level.author;
+  const value = charsByName.indexOf(alien.character);
 
-  state.map = getBaseGrid();
-  /*
-  state.map = getBaseGrid().forEach((row, i) => {
+  // Complete the shape for reference
+  shape.forEach((row, i) => {
     row.forEach((cell, j) => {
-      const c = new Cell(game, {
-        x: tileSize * i,
-        y: tileSize * j
-      })
-
-      this.add(c)
+      state.map[i + pos[1]][j + pos[0]] = value
     })
   })
-  */
 
-  level.aliens.forEach(alien => {
-    const shape = __characters[alien.character].shape
-    const pos = alien.position
+  state.map[pos[1]][pos[0]] = {
+    value,
+    character: alien.character
+  }
+}
 
-    const value = charsByName.indexOf(alien.character);
-    state.map[pos[0]][pos[1]] = value
+function removeAlien(alien) {
+  const shape = __characters[alien.character].shape
+  const pos = alien.position
+  const value = charsByName.indexOf(alien.character);
 
+  // Complete the shape for reference
+  shape.forEach((row, i) => {
+    row.forEach((cell, j) => {
+      if (state.map[i + pos[1]][j + pos[0]] === value){
+        state.map[i + pos[1]][j + pos[0]] = 0;
+      }
+    })
   })
 
-  state.start = []
-  state.end = level.target.position
+  state.map[pos[1]][pos[0]] = 0;
+}
 
-  /*
-  level.cells.forEach((row, j) => {
-    row.forEach((cell, i) => {
-      if(cell - 100 >= 0 && cell - 100 < 100){
-        state.start = [i, j];
-      }
-      if(cell - 900 >= 0 && cell - 900 < 100){
-        state.end = [i, j];
+function setTarget(target){
+  removeTarget();
+
+  state.end = target;
+  const shape = __characters[target.character].shape
+  const pos = target.position
+
+  shape.forEach((row, i) => {
+    row.forEach((cell, j) => {
+      state.map[i + pos[1]][j + pos[0]] = 900
+    })
+  })
+}
+
+function removeTarget() {
+  if (!state.end || !state.end.position) return;
+  state.end.position = null;
+
+  state.map.forEach((row, i) => {
+    row.forEach((cell, j) => {
+      if (cell === 900) {
+        state.map[i][j] = 0;
       }
     });
   });
 
-  state.map = level.cells.map((row) => {
-    return row.map((cell) => {
-      if(cell - 100 >= 0 && cell - 100 < 100){
-        return cell - 100;
-      }
-      if(cell - 900 >= 0 && cell - 900 < 100){
-        return cell - 900;
-      }
-      return cell;
-    });
-  });
-  */
+}
+
+function refreshState(level){
+  state.map = getBaseGrid();
+  state.name = level.name;
+  level.aliens.forEach(setAlien)
+  setTarget(level.target)
 }
 
 function refreshControlsFromState(){
-  // $('#x').val(state.x);
-  // $('#y').val(state.y);
-  // $('#maxMoves').val(state.maxMoves);
-  // $('#author').val(state.author);
   let $grid = $('<table>');
   for(let i = 0; i < state.y; i++){
     let $row = $('<tr>');
 
     for(let j = 0; j < state.x; j++){
-      let $td = $(`<td data-location="${j}-${i}" class="${'opt' + state.map[i][j]}" >`);
-      if(state.start[0] === j && state.start[1] === i){
-        $td.addClass('opt100');
+      let value = state.map[i][j];
+      let character;
+      if (isNaN(value)) {
+        character = value.character;
+        value = value.value;
       }
-      if(state.end[0] === j && state.end[1] === i){
-        $td.addClass('opt900');
-      }
+
+      const charCSS = character ? 'char-' + character : '';
+      const css = `${'opt' + value} ${charCSS}`;
+      let $td = $(`<td data-location="${j}-${i}" class="${css}" >`);
+
       $row.append($td);
     }
     $grid.append($row);
   }
+
   $('#grid-container').html($grid);
+  $('#level-name').val(state.name);
+  setToolImages();
 }
 
 function getLevelFromState(state){
-  let cells = state.map.map((row, j) => {
-    return row.map((cell, i) => {
-      if(!cell){
-        return 0;
+
+  const aliens = []
+  state.map.forEach((row, j) => {
+    row.forEach((cell, i) => {
+      if (cell && isNaN(cell) && cell.character) {
+        aliens.push({
+          character: cell.character,
+          position: [i, j]
+        })
       }
-      if(i === state.start[0] && j === state.start[1]){
-        return cell + 100;
-      }
-      if(i === state.end[0] && j === state.end[1]){
-        return cell + 900;
-      }
-      return cell;
     });
   });
+
   let data = {
-    gridSize: [state.x, state.y],
-    cells,
-    maxMoves: parseInt($('#maxMoves').val()) || false,
-    author: state.author
+    name: state.name,
+    target: state.end,
+    aliens
   };
   return JSON.stringify(data);
 }
@@ -225,7 +249,7 @@ function refreshExportButton(){
 }
 
 function validate(){
-  return state.start && state.end;
+  return state.name && state.end && state.end.character && state.end.position;
 }
 
 function onHoverGridCellIn(e){
@@ -239,31 +263,47 @@ function onHoverGridCellOut(e){
 function onClickGridCell(e){
   let isDelete = e.ctrlKey;
   let tool;
+  let cell = $(this)
+
   if(selectedTool === null || isDelete){
     tool = 0;
   }
   else {
     tool = selectedTool;
   }
-  let [x, y] = $(this).data('location').split('-').map((x) => parseInt(x));
 
-  if(tool === 100 && !state.map[y][x]){
-    console.warn('map start show be of a type ');
+  const position = cell.data('location').split('-').map((x) => parseInt(x));
+
+  if (tool === 0) {
+    const cssClass = cell.attr('class')
+    if (cssClass.indexOf('char-') > -1){
+      removeAlien({
+        position,
+        character: cssClass.split(' ').reduce((result, item) => {
+          if (item.indexOf('char-') > -1) return item.split('-')[1];
+        }, '')
+      })
+
+    }
+    else if (cell.hasClass('opt900')) {
+      removeTarget()
+    }
   }
-  if(tool === 100 || tool === 900){
-    $('#grid-container td').removeClass('opt' + tool);
-    this.className += ' opt' + tool;
-    if(tool === 100){
-      state.start = [x, y];
-    }
-    else {
-      state.end = [x, y];
-    }
+  else if(tool === 900){ // target
+    if (!state.end || !state.end.character) return alert('set a character first!')
+    setTarget({
+      character: state.end.character,
+      position
+    })
   }
   else {
-    this.className = 'opt' + tool;
-    state.map[y][x] = tool;
+    setAlien({
+      character: charsByName[tool],
+      position
+    })
   }
+
+  refreshControlsFromState();
   refreshExportButton();
 }
 
@@ -286,4 +326,38 @@ function onChangeGridSize(){
   }
   $('#grid-container').html($grid);
   refreshExportButton();
+}
+
+function setToolImages() {
+  $('.btn.tool').each( function() {
+    const btn = $(this);
+    const value = parseInt(btn.attr('data-tileType'), 10);
+    if (value > 0 && value < 100) {
+      const sprite = __characters[charsByName[value]].sprite
+      btn.css({
+        backgroundImage: `url('/assets/spritesheets/${sprite}.png')`
+      }).attr('title', sprite)
+    }
+    else if (value === 100 && state.end && state.end.character) {
+      const sprite = __characters[state.end.character].sprite
+
+      btn
+        .removeClass (function (index, css) {
+          return (css.match (/(^|\s)opt\S+/g) || []).join(' ');
+        })
+        .addClass(`opt${charsByName.indexOf(state.end.character)} selected`)
+        .css({
+          backgroundImage: `url('/assets/spritesheets/${sprite}.png')`
+        })
+        .attr('title', sprite)
+    }
+    else if(value === 900) {
+      if (state.end && state.end.character) {
+        btn.removeAttr('disabled');
+      }
+      else {
+        btn.attr('disabled', 'disabled');
+      }
+    }
+  })
 }
