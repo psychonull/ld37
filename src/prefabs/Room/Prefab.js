@@ -33,7 +33,8 @@ class Room extends Phaser.Group {
         y: options.tileSize * position[1] + offsetY
       };
 
-      const cells = this.createAlienCells(pos, shape);
+      const isTarget = character === level.target.character
+      const cells = this.createAlienCells(pos, shape, isTarget);
       const alien = new Alien(this.game, {
         id,
         x: pos.x,
@@ -59,7 +60,7 @@ class Room extends Phaser.Group {
     });
   }
 
-  createAlienCells(position, shape) {
+  createAlienCells(position, shape, isTarget) {
     const alienCells = this.game.add.group();
 
     shape.forEach((row, i) => {
@@ -69,7 +70,12 @@ class Room extends Phaser.Group {
           y: position.y + (options.tileSize*i)
         };
 
-        alienCells.add(this.game.add.sprite(p.x, p.y, 'cell_white'))
+        if (isTarget){
+          alienCells.add(this.game.add.sprite(p.x, p.y, 'cell_target'))
+        }
+        else {
+          alienCells.add(this.game.add.sprite(p.x, p.y, 'cell_red'))
+        }
       })
     })
 
