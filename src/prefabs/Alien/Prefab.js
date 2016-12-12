@@ -79,7 +79,7 @@ class Alien extends Phaser.Sprite {
   }
 
   onInputUp() {
-  this.tint = 0xFFFFFF;
+    this.tint = 0xFFFFFF;
     const {room, controls} = $$.getState();
     if (controls.move && room.alienSelected === this.id){
       this.events.onInputUp.remove(this.onInputUp, this);
