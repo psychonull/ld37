@@ -27,7 +27,13 @@ class Alien extends Phaser.Sprite {
     this.moving = false;
     this.animations.play('none', 1, true);
     this.playIdleAtRandom();
-    this.anchor.setTo(0, 0);
+
+    if (character.anchor){
+      this.anchor.setTo(character.anchor[0], character.anchor[1]);
+    }
+    else {
+      this.anchor.setTo(0, 0);
+    }
   }
 
   setCells(cells) {

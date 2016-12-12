@@ -66,7 +66,7 @@ class Game extends Phaser.State {
 
       this.game.state.start('win');
     });
-    
+
     $$.subscribe(() => this.game.sound.mute = !$$.getState().gameStats.sound);
 
     this.restartKey = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
@@ -75,7 +75,7 @@ class Game extends Phaser.State {
   }
 
   update() {
-
+  
   }
 
   endGame() {

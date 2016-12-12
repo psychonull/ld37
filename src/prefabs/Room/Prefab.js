@@ -13,6 +13,7 @@ class Room extends Phaser.Group {
     const level = getCurrentLevel($$.getState())
     this.target = new Target(this.game)
     this.add(this.target)
+    this.add(this.target.door)
 
     this.createAliens(level)
   }
@@ -50,13 +51,9 @@ class Room extends Phaser.Group {
 
     $$.dispatch(action.receiveAliens(_aliens));
     this.aliens.forEach(({alien, cells}) => {
-      const alienGroup = this.game.add.group();
-
-      alienGroup.add(cells);
-      alienGroup.add(alien);
+      this.add(cells);
+      this.add(alien);
       alien.setCells(cells);
-
-      this.add(alienGroup);
     });
   }
 

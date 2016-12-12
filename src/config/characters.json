@@ -1,91 +1,104 @@
 {
   "pork": {
     "sprite": "1_1x1",
+    "anchor": [0, 0.4],
     "shape": [
       [1]
     ]
   },
   "pulpo": {
     "sprite": "2_1x1",
+    "anchor": [0, 0.3],
     "shape": [
       [1]
     ]
   },
   "tentacle": {
     "sprite": "3_1x1",
+    "anchor": [0.1, 0.3],
     "shape": [
       [1]
     ]
   },
   "cockie": {
     "sprite": "4_1x1",
+    "anchor": [0, 0.3],
     "shape": [
       [1]
     ]
   },
 
   "jasam": {
-      "sprite": "5_2x2",
-      "shape": [
-          [1, 1],
-          [1, 1]
-      ]
+    "sprite": "5_2x2",
+    "anchor": [0, 0.4],
+    "shape": [
+      [1, 1],
+      [1, 1]
+    ]
   },
   "tresojos": {
-      "sprite": "6_2x2",
-      "shape": [
-          [1, 1],
-          [1, 1]
-      ]
+    "sprite": "6_2x2",
+    "anchor": [0, 0.4],
+    "shape": [
+      [1, 1],
+      [1, 1]
+    ]
   },
   "ciclope": {
-      "sprite": "7_2x2",
-      "shape": [
-          [1, 1],
-          [1, 1]
-      ]
+    "sprite": "7_2x2",
+    "anchor": [-0.1, 0.4],
+    "shape": [
+      [1, 1],
+      [1, 1]
+    ]
   },
   "arrugado": {
-      "sprite": "8_2x2",
-      "shape": [
-          [1, 1],
-          [1, 1]
-      ]
+    "sprite": "8_2x2",
+    "anchor": [0, 0.4],
+    "shape": [
+      [1, 1],
+      [1, 1]
+    ]
   },
 
 
   "tiritas": {
     "sprite": "9_2x1",
+    "anchor": [0.2, 0.4],
     "shape": [
       [1, 1]
     ]
   },
   "pajaro": {
     "sprite": "10_2x1",
+    "anchor": [-0.1, 0.4],
     "shape": [
       [1, 1]
     ]
   },
 
   "wheeler": {
-      "sprite": "11_1x2",
-      "shape": [
-          [1],
-          [1]
-      ]
+    "sprite": "11_1x2",
+    "anchor": [0, 0.4],
+    "shape": [
+      [1],
+      [1]
+    ]
   },
   "tiocosas": {
-      "sprite": "12_1x2",
-      "shape": [
-          [1],
-          [1]
-      ]
+    "sprite": "12_1x2",
+    "anchor": [0, 0.4],
+    "shape": [
+      [1],
+      [1]
+    ]
   },
   "huesos": {
-      "sprite": "13_1x2",
-      "shape": [
-          [1],
-          [1]
-      ]
+    "sprite": "13_1x2",
+    "anchor": [0, 0.4],
+    "shape": [
+      [1],
+      [1]
+    ]
   }
 }

@@ -36,12 +36,11 @@ class Target extends Phaser.Group {
       })
     })
 
-
     if (shape[0].length > 1) {
-      game.add.sprite(pos.x-(tileSize/1.5), 0, 'doorx2');
+      this.door = game.add.sprite(pos.x-(tileSize/1.5), 0, 'doorx2');
     }
     else {
-      game.add.sprite(pos.x-(tileSize/3), 0, 'door');
+      this.door = game.add.sprite(pos.x-(tileSize/3), 0, 'door');
     }
 
     this.targetPosition = target.position;
