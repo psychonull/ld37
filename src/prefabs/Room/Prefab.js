@@ -28,16 +28,56 @@ class Room extends Phaser.Group {
 
       _aliens.push({id, position, character, shape});
 
-      return new Alien(this.game, {
-        id,
+      const pos = {
         x: options.tileSize * position[0] + offsetX,
-        y: options.tileSize * position[1] + offsetY,
+        y: options.tileSize * position[1] + offsetY
+      };
+
+      const cells = this.createAlienCells(pos, shape);
+      const alien = new Alien(this.game, {
+        id,
+        x: pos.x,
+        y: pos.y,
         character
       });
+
+      return {
+        alien,
+        cells
+      };
     });
 
     $$.dispatch(action.receiveAliens(_aliens));
-    this.aliens.forEach(alien => this.add(alien));
+    this.aliens.forEach(({alien, cells}) => {
+      const alienGroup = this.game.add.group();
+
+      alienGroup.add(cells);
+      alienGroup.add(alien);
+      alien.setCells(cells);
+
+      this.add(alienGroup);
+    });
+  }
+
+  createAlienCells(position, shape) {
+    const alienCells = this.game.add.group();
+
+    shape.forEach((row, i) => {
+      row.forEach((cell, j) => {
+        const p = {
+          x: position.x + (options.tileSize*j),
+          y: position.y + (options.tileSize*i)
+        };
+
+        alienCells.add(this.game.add.sprite(p.x, p.y, 'cell_white'))
+      })
+    })
+
+    return alienCells;
+  }
+
+  update() {
+    this.sort('y', Phaser.Group.SORT_ASCENDING);
   }
 
 }

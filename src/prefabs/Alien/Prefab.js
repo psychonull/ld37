@@ -22,13 +22,16 @@ class Alien extends Phaser.Sprite {
     this.inputEnabled = true;
     this.events.onInputDown.add(this.onInputDown, this);
 
-
     this.animationSpeed = 8;
     this._setupAnimations();
     this.moving = false;
     this.animations.play('none', 1, true);
     this.playIdleAtRandom();
     this.anchor.setTo(0, 0);
+  }
+
+  setCells(cells) {
+    this.cells = cells;
   }
 
   _setupAnimations(){
@@ -99,11 +102,19 @@ class Alien extends Phaser.Sprite {
       const x = tileSize * position[0] + offsetX;
       const y = tileSize * position[1] + offsetY;
 
+      const cx = tileSize * controls.move.x;
+      const cy = tileSize * controls.move.y;
+      this.cells.visible = false;
+
       this.playMovingAnimation(controls.move);
       this.animateMove({x, y}, () => {
         $$.dispatch(roomActions.alienMoveTo({id: this.id, position}));
         this.animations.play('none', 1, true);
         this.moving = false;
+
+        this.cells.position.x += cx;
+        this.cells.position.y += cy;
+        this.cells.visible = true;
       })
     }
 

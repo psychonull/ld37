@@ -51,6 +51,7 @@ class Preloader extends Phaser.State {
       this.game.load.atlas('13_1x2', 'assets/spritesheets/13_1x2.png', 'assets/spritesheets/13_1x2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 
       this.game.load.image('cell_gray','assets/sprites/cell_gray.png');
+      this.game.load.image('cell_white','assets/sprites/cell_white.png');
       this.game.load.image('cell_target','assets/sprites/cell_target.png');
 
       this.game.load.audio('ending_5', ['assets/sound/ending_5.mp3', 'assets/sound/ending_5.ogg']);
