@@ -3,9 +3,9 @@ import qs from 'qs';
 
 const __characters = require('./config/characters')
 
-const {tileSize, gameWidth, gameHeight} = require('./config/options')
-const y = Math.floor(gameHeight/tileSize);
-const x = Math.floor(gameWidth/tileSize);
+const {tileSize, gameWidth, gameHeight, offsetX, offsetY} = require('./config/options')
+const y = Math.floor((gameHeight - offsetY)/tileSize);
+const x = Math.floor((gameWidth - offsetX)/tileSize);
 
 const getBaseGrid =() => new Array(y).fill(1).map(() => new Array(x).fill(0));
 
