@@ -24,6 +24,14 @@ class Target extends Phaser.Group {
     };
 
     const shape = expecChar.shape;
+
+    const targetCell = game.add.sprite(pos.x, pos.y, 'cell_target')
+    targetCell.scale.x = shape[0].length;
+    targetCell.scale.y = shape.length;
+
+    this.add(targetCell)
+
+    /* several cells instead of one scaled like above
     shape.forEach((row, i) => {
       row.forEach((cell, j) => {
         const p = {
@@ -35,6 +43,7 @@ class Target extends Phaser.Group {
         this.add(targetCell)
       })
     })
+    */
 
     if (shape[0].length > 1) {
       this.door = game.add.sprite(pos.x-(tileSize/1.5), 0, 'doorx2');

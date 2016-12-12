@@ -57,6 +57,23 @@ class Room extends Phaser.Group {
     });
   }
 
+
+  createAlienCells(position, shape, isTarget) {
+    const alienCells = this.game.add.group(); // using a group to keep sort
+    let cellType = 'cell_red'
+
+    if (isTarget){
+      cellType = 'cell_target'
+    }
+
+    const sprite = alienCells.add(this.game.add.sprite(position.x, position.y, cellType))
+    sprite.scale.x = shape[0].length;
+    sprite.scale.y = shape.length;
+
+    return alienCells;
+  }
+
+/* Cells group marking every square of the color (instead of one scaled > above)
   createAlienCells(position, shape, isTarget) {
     const alienCells = this.game.add.group();
 
@@ -78,7 +95,7 @@ class Room extends Phaser.Group {
 
     return alienCells;
   }
-
+*/
   update() {
     this.sort('y', Phaser.Group.SORT_ASCENDING);
   }
