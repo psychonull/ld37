@@ -182,6 +182,7 @@ function removeTarget() {
 
 function refreshState(level){
   state.map = getBaseGrid();
+  state.name = level.name;
   level.aliens.forEach(setAlien)
   setTarget(level.target)
 }
