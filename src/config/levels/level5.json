@@ -1,0 +1,185 @@
+{
+  "name": "Level 5",
+  "music": "accion_9",
+  "lights": {
+    "type": "moving",
+    "amount": 10
+  },
+  "target": {
+    "character": "tiritas",
+    "position": [
+      8,
+      0
+    ]
+  },
+  "aliens": [
+    {
+      "character": "wheeler",
+      "position": [
+        1,
+        0
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        2,
+        0
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        4,
+        0
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        6,
+        0
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        6,
+        1
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        8,
+        1
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        0,
+        2
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        1,
+        2
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        2,
+        2
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        4,
+        2
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        6,
+        2
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        8,
+        2
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        10,
+        2
+      ]
+    },
+    {
+      "character": "wheeler",
+      "position": [
+        1,
+        4
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        2,
+        4
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        4,
+        4
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        6,
+        4
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        8,
+        4
+      ]
+    },
+    {
+      "character": "ciclope",
+      "position": [
+        10,
+        4
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        0,
+        6
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        2,
+        6
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        4,
+        6
+      ]
+    },
+    {
+      "character": "pajaro",
+      "position": [
+        8,
+        6
+      ]
+    },
+    {
+      "character": "tiritas",
+      "position": [
+        10,
+        6
+      ]
+    }
+  ]
+}
