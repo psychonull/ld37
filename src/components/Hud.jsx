@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 export default class Hud extends Component {
   render() {
     const res = this.props.targetSprite ? this.props.targetSprite.split('_')[1] : '';
-    console.log('sound', this.props.sound);
     return (
       this.props.level === null ?
         null :
