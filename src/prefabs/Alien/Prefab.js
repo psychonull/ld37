@@ -22,7 +22,7 @@ class Alien extends Phaser.Sprite {
     this.inputEnabled = true;
     this.events.onInputDown.add(this.onInputDown, this);
 
-    this.animationSpeed = 8;
+    this.animationSpeed = 9.4;
     this._setupAnimations();
     this.moving = false;
     this.animations.play('none', 1, true);
@@ -52,11 +52,13 @@ class Alien extends Phaser.Sprite {
     this.animations.add('leftright', [
       `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
       `${spriteIndex}_leftright_2_${spriteDimensions}_sprite`,
+      `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
       `${spriteIndex}_leftright_3_${spriteDimensions}_sprite`
     ]);
     this.animations.add('updown', [
       `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
       `${spriteIndex}_updown_2_${spriteDimensions}_sprite`,
+      `${spriteIndex}_iddle_1_${spriteDimensions}_sprite`,
       `${spriteIndex}_updown_3_${spriteDimensions}_sprite`
     ]);
   }
@@ -71,11 +73,13 @@ class Alien extends Phaser.Sprite {
   }
 
   onInputDown() {
+    this.tint = 0x999900;
     $$.dispatch(roomActions.alienSelected(this.id));
     this.events.onInputUp.add(this.onInputUp, this);
   }
 
   onInputUp() {
+  this.tint = 0xFFFFFF;
     const {room, controls} = $$.getState();
     if (controls.move && room.alienSelected === this.id){
       this.events.onInputUp.remove(this.onInputUp, this);

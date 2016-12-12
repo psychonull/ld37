@@ -7,9 +7,9 @@ body {
   padding-top: 20px;
 }
 canvas {
-  display: inline-block;
-  cursor: none;
+  display: inline-block;  
   border: 1px dotted #131331;
+  cursor: move!important; 
 }
 
 .game-container {
