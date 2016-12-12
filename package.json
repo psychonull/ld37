@@ -12,8 +12,9 @@
     "build:css": "cleancss css/main.css -o build/main.min.css",
     "build:html": "htmlprocessor index.html -o build/index.html",
     "copy:all": "npm run copy:assets && npm run copy:phaser",
-    "copy:assets": "ncp assets build/",
-    "copy:phaser": "ncp node_modules/phaser/build/phaser.min.js build/phaser.min.js"
+    "copy:assets": "ncp assets build/assets",
+    "copy:phaser": "ncp node_modules/phaser/build/custom/phaser-arcade-physics.min.js build/phaser-arcade-physics.min.js",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -57,6 +58,7 @@
     "clean-css": "^3.4.17",
     "eslint": "^3.12.0",
     "eslint-loader": "^1.6.1",
+    "gh-pages": "^0.12.0",
     "htmlprocessor": "^0.2.3",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
