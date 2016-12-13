@@ -1,10 +1,7 @@
 {
-  "name": "level 6",
-  "music": "accion_2",
-  "lights": {
-    "type": "both"
-  },
-  "target": {
+  "name": "6. Sounds for the deaf",
+  "maxMoves": 42,
+   "target": {
     "character": "ciclope",
     "position": [
       5,

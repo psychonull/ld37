@@ -1,6 +1,7 @@
 {
-  "name": "Level 2",
+  "name": "2. NightXplossion",
   "music": "intermedio",
+  "maxMoves": 7,
   "target": {
     "character": "pajaro",
     "position": [2, 0]

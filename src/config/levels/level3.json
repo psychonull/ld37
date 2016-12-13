@@ -1,6 +1,7 @@
 {
-  "name": "Level 3",
+  "name": "3. I cannot handle this level of fun",
   "music": "accion_9",
+  "maxMoves": 11,
   "lights": {
     "type": "both"
   },

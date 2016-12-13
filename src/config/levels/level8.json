@@ -1,0 +1,11 @@
+{"name":"8. Farewell","target":{"character":"wheeler","position":[3,0]},"aliens":[{"character":"tiocosas","position":[2,0]},{"character":"jasam","position":[5,0]},{"character":"jasam","position":[10,0]},{"character":"ciclope","position":[0,1]},{"character":"pork","position":[4,1]},{"character":"cockie","position":[7,1]},{"character":"huesos","position":[8,1]},{"character":"pork","position":[9,1]},{"character":"cockie","position":[2,2]},{"character":"tiocosas","position":[3,2]},{"character":"pulpo","position":[5,2]},{"character":"tiritas","position":[6,2]},{"character":"arrugado","position":[9,2]},{"character":"ciclope","position":[0,3]},{"character":"huesos","position":[2,3]},{"character":"cockie","position":[4,3]},{"character":"pork","position":[5,3]},{"character":"huesos","position":[7,3]},{"character":"cockie","position":[11,3]},{"character":"tiocosas","position":[4,4]},{"character":"jasam","position":[5,4]},{"character":"pulpo","position":[8,4]},{"character":"tiritas","position":[9,4]},{"character":"huesos","position":[11,4]},{"character":"cockie","position":[2,5]},{"character":"wheeler","position":[7,5]},{"character":"cockie","position":[8,5]},{"character":"tiocosas","position":[10,5]},{"character":"pork","position":[0,6]},{"character":"pork","position":[3,6]},{"character":"cockie","position":[5,6]}],
+"lights": {
+  "type": "moving",
+  "amount": 100,
+  "minScale": 0.2,
+  "maxScale": 0.3,
+  "minSpeed": 300,
+  "maxSpeed": 800
+}
+
+}

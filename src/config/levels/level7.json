@@ -1,0 +1,7 @@
+{"name":"7. oh, that tune is popular again.","target":{"character":"tresojos","position":[0,0]},"aliens":[{"character":"arrugado","position":[2,0]},{"character":"pulpo","position":[5,0]},{"character":"pajaro","position":[7,0]},{"character":"tresojos","position":[9,0]},{"character":"tiritas","position":[4,1]},{"character":"pulpo","position":[7,1]},{"character":"pork","position":[0,2]},{"character":"ciclope","position":[1,2]},{"character":"tentacle","position":[4,2]},{"character":"pajaro","position":[5,2]},{"character":"tiocosas","position":[8,2]},{"character":"tentacle","position":[10,2]},{"character":"tiocosas","position":[0,3]},{"character":"pulpo","position":[3,3]},{"character":"tentacle","position":[7,3]},{"character":"tentacle","position":[10,3]},{"character":"jasam","position":[3,4]},{"character":"pulpo","position":[5,4]},{"character":"pulpo","position":[7,4]},{"character":"jasam","position":[9,4]},{"character":"pulpo","position":[11,4]},{"character":"tentacle","position":[2,5]},{"character":"jasam","position":[6,5]},{"character":"pulpo","position":[8,5]},{"character":"pajaro","position":[0,6]},{"character":"pulpo","position":[2,6]},{"character":"tentacle","position":[5,6]}],
+"maxMoves": 27,
+"music": "intermedio",
+"lights": {
+  "type": "flashing",
+  "rithm": [2000, 200, 100, 200, 100, 200, 500, 200, 100, 200, 100, 200]
+}}

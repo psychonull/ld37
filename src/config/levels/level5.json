@@ -1,10 +1,11 @@
 {
-  "name": "Level 5",
-  "music": "accion_9",
+  "name": "5. OMFG WHERE THE F** AM I",
+  "music": "suspenso_4",
   "lights": {
-    "type": "moving",
-    "amount": 10
+    "type": "flashing",
+    "alpha": 0.7
   },
+  "maxMoves": 26,
   "target": {
     "character": "tiritas",
     "position": [

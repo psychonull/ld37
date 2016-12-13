@@ -1,6 +1,6 @@
 {
-  "name": "Level 1",
-  "music": "intermedio",
+  "name": "1. Sad party",
+  "music": "ending_5",
   "lights": {
     "type": "moving",
     "amount": 3,
